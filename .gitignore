@@ -1,3 +1,19 @@
 .DS_Store
 .superpowers/
 node_modules/
+
+# Secrets / credentials
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+serviceAccountKey.json
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*~
