@@ -46,10 +46,15 @@ function isSafeHttpUrl(urlStr) {
   try {
     const parsed = new URL(urlStr)
     if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return false
-    const h = parsed.hostname
-    if (h === 'localhost' || h === '0.0.0.0' || h === '[::1]' || h === '::1') return false
+    // Strip brackets from IPv6 and trailing dot from FQDN for comparison
+    const h = parsed.hostname.replace(/^\[|\]$/g, '').replace(/\.$/, '')
+    // Loopback
+    if (h === 'localhost' || h === '0.0.0.0' || h === '::1') return false
     if (h.startsWith('127.')) return false
+    // RFC 1918 + link-local IPv4
     if (/^(10\.|172\.(1[6-9]|2\d|3[01])\.|192\.168\.|169\.254\.)/.test(h)) return false
+    // Private / link-local IPv6 (fc00::/7 unique-local, fe80::/10 link-local)
+    if (/^(fc|fd|fe[89ab])/i.test(h)) return false
     return true
   } catch {
     return false
@@ -74,7 +79,7 @@ function getRelayUrls() {
   try {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY))
     if (Array.isArray(stored) && stored.length > 0) {
-      const valid = stored.filter(s => typeof s === 'string' && s.startsWith('wss://'))
+      const valid = stored.filter(s => typeof s === 'string' && (s.startsWith('wss://') || s.startsWith('ws://')))
       if (valid.length > 0) return [...new Set([...DEFAULT_RELAYS, ...valid])]
     }
   } catch {
