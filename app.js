@@ -995,7 +995,7 @@ document.addEventListener('click', (e) => {
   const url = btn.dataset.url
   // Strip control characters and single-quote the URL to prevent shell injection
   const safeUrl = url.replace(/[\x00-\x1f\x7f]/g, '').replace(/'/g, "'\\''")
-  const cmd = "# Returns 402 with a Lightning invoice \u2014 pay to get an L402 token\ncurl -i '" + safeUrl + "' -H 'Accept: application/json'"
+  const cmd = "curl -i '" + safeUrl + "' -H 'Accept: application/json'"
   navigator.clipboard.writeText(cmd).then(() => {
     btn.textContent = 'Copied!'
     setTimeout(() => { btn.textContent = 'Copy curl' }, 1500)
