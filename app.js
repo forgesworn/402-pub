@@ -58,10 +58,14 @@ function isSafeHttpUrl(urlStr) {
     if (/^(10\.|172\.(1[6-9]|2\d|3[01])\.|192\.168\.|169\.254\.)/.test(h)) return false
     // Private / link-local IPv6 (fc00::/7 unique-local, fe80::/10 link-local)
     if (/^(fc|fd|fe[89ab])/i.test(h)) return false
-    // IPv4-mapped IPv6 (::ffff:x.x.x.x) — re-check the mapped IPv4 portion
-    if (h.startsWith('::ffff:')) {
-      const mapped = h.slice(7)
-      if (mapped === '127.0.0.1' || mapped.startsWith('127.') ||
+    // IPv4-mapped IPv6 (::ffff:x.x.x.x) — browsers normalise to hex (::ffff:7f00:1)
+    // Parse the two hex words back to an IPv4 address and re-check
+    const ffffMatch = h.match(/^::ffff:([0-9a-f]{1,4}):([0-9a-f]{1,4})$/i)
+    if (ffffMatch) {
+      const hi = parseInt(ffffMatch[1], 16)
+      const lo = parseInt(ffffMatch[2], 16)
+      const mapped = `${hi >> 8}.${hi & 0xff}.${lo >> 8}.${lo & 0xff}`
+      if (mapped.startsWith('127.') || mapped === '0.0.0.0' ||
           /^(10\.|172\.(1[6-9]|2\d|3[01])\.|192\.168\.|169\.254\.)/.test(mapped)) return false
     }
     return true
@@ -833,9 +837,6 @@ async function fetchExternalSources() {
         const parsed = src.parse(data, src.name)
         let added = 0
         parsed.forEach(svc => {
-          // Respect MAX_SERVICES cap for external sources too
-          if (services.size >= MAX_SERVICES) return
-
           // Only add if no Nostr self-announced version exists for this URL
           const existingByUrl = [...services.values()].find(
             s => s.url === svc.url && s.source === 'nostr'
@@ -843,6 +844,10 @@ async function fetchExternalSources() {
           if (existingByUrl) return
 
           const key = 'ext:' + src.name + ':' + svc.identifier
+
+          // Respect MAX_SERVICES cap (allow updates to existing entries)
+          if (!services.has(key) && services.size >= MAX_SERVICES) return
+
           if (!services.has(key)) newlyAddedKeys.add(key)
           services.set(key, svc)
           added++
