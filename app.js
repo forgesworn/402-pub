@@ -30,6 +30,9 @@ const STORAGE_KEY = 'l402-dashboard-relays'
 /** Maximum reconnect backoff in milliseconds (30 s) */
 const RECONNECT_MAX = 30_000
 
+/** Maximum number of services to store (prevents memory exhaustion from relay flood) */
+const MAX_SERVICES = 500
+
 /* ============================================================
    URL Validation
    ============================================================ */
@@ -217,6 +220,9 @@ function handleEvent(event) {
   const key = event.pubkey + ':' + dTag
   const existing = services.get(key)
   if (existing && existing.createdAt >= event.created_at) return
+
+  // Cap total service count to prevent memory exhaustion from relay flood
+  if (!existing && services.size >= MAX_SERVICES) return
 
   // Track genuinely new services (not updates to existing ones)
   if (!existing) newlyAddedKeys.add(key)
