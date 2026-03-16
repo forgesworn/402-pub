@@ -1,0 +1,25 @@
+{
+  "name": "402-pub",
+  "version": "1.0.0",
+  "description": "The open marketplace for Lightning-paid APIs — live service directory streaming kind 31402 announcements from Nostr relays",
+  "keywords": [
+    "nostr",
+    "lightning",
+    "l402",
+    "bitcoin",
+    "api-marketplace",
+    "paid-api",
+    "kind-31402",
+    "lightning-network",
+    "nostr-protocol",
+    "service-directory",
+    "402"
+  ],
+  "homepage": "https://402.pub/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheCryptoDonkey/402-pub.git"
+  },
+  "license": "MIT",
+  "private": true
+}
