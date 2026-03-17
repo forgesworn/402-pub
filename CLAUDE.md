@@ -2,7 +2,7 @@
 
 ## What is this?
 
-Static landing page and live service directory for [402.pub](https://402.pub/) — the open marketplace for Lightning-paid APIs. No build step, no framework, no backend.
+Static landing page and live service directory for [402.pub](https://402.pub/) — the open marketplace for paid APIs. No build step, no framework, no backend.
 
 ## Architecture
 

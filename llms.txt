@@ -1,9 +1,9 @@
 # 402.pub
 
 > Monetising APIs today means API keys, billing dashboards, and vendor lock-in.
-> 402.pub is the open marketplace for Lightning-paid APIs — a live directory that
-> streams service announcements from Nostr relays, letting developers discover and
-> pay for APIs with sats, no registration required.
+> 402.pub is the open marketplace for paid APIs — a live directory that streams
+> service announcements from Nostr relays, letting developers discover and pay for
+> APIs with L402, x402, or Cashu, no registration required.
 
 402.pub serves two audiences: **API operators** who want to monetise endpoints with
 Lightning payments, and **agent builders** who want AI agents that autonomously
@@ -12,7 +12,7 @@ backend — all data comes from Nostr kind 31402 events and external directories
 
 ## For API Operators
 
-Gate any HTTP endpoint behind Lightning using toll-booth middleware, then announce
+Gate any HTTP endpoint behind a paywall using toll-booth middleware, then announce
 it on Nostr with 402-announce. Your service appears on 402.pub automatically.
 
 - [toll-booth](https://github.com/TheCryptoDonkey/toll-booth) — L402 paywall middleware for Express, Hono, or any HTTP framework
@@ -22,7 +22,7 @@ it on Nostr with 402-announce. Your service appears on 402.pub automatically.
 ## For Agent Builders
 
 Give your AI agent a wallet with 402-mcp. It discovers paid APIs on Nostr, pays
-with Lightning (NWC) or Cashu, caches credentials, and tracks spend with safety limits.
+with L402, x402, or Cashu, caches credentials, and tracks spend with safety limits.
 
 - [402-mcp](https://github.com/TheCryptoDonkey/402-mcp) — MCP server for autonomous API discovery and payment
 

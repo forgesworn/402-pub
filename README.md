@@ -1,6 +1,6 @@
 # 402.pub
 
-**The open marketplace for Lightning-paid APIs.** Discover services on Nostr, pay with sats — no registry, no API keys, no gatekeepers.
+**The open marketplace for paid APIs.** Discover services on Nostr, pay with L402, x402, or Cashu — no registry, no API keys, no gatekeepers.
 
 [402.pub](https://402.pub/) is a live directory that streams [kind 31402](https://github.com/TheCryptoDonkey/402-announce) service announcements from Nostr relays in real time. It also indexes external directories like [l402.directory](https://l402.directory/) so you get a single view of the entire L402 ecosystem.
 
@@ -10,7 +10,7 @@
 
 ### I run an API
 
-Gate any HTTP endpoint behind Lightning in a few lines of code. Announce it on Nostr and it appears here automatically.
+Gate any HTTP endpoint behind a paywall in a few lines of code. Announce it on Nostr and it appears here automatically.
 
 ```bash
 npm i @thecryptodonkey/toll-booth
@@ -22,7 +22,7 @@ npm i @thecryptodonkey/toll-booth
 
 ### I build agents
 
-Give your AI agent a wallet. It discovers paid APIs on Nostr, pays with Lightning or Cashu, and caches credentials — no human approval needed.
+Give your AI agent a wallet. It discovers paid APIs on Nostr, pays with L402, x402, or Cashu, and caches credentials — no human approval needed.
 
 ```bash
 npx 402-mcp
@@ -65,7 +65,7 @@ favicon.*           Favicon set (ICO, SVG, PNG sizes)
 
 ## Part of the L402 ecosystem
 
-402.pub is the public face of a suite of open-source tools for Lightning-paid APIs:
+402.pub is the public face of a suite of open-source tools for paid APIs:
 
 | Package | Purpose |
 |---------|---------|

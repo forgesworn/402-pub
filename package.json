@@ -1,16 +1,17 @@
 {
   "name": "402-pub",
   "version": "1.0.0",
-  "description": "The open marketplace for Lightning-paid APIs — live service directory streaming kind 31402 announcements from Nostr relays",
+  "description": "The open marketplace for paid APIs — live service directory streaming kind 31402 announcements from Nostr relays",
   "keywords": [
     "nostr",
     "lightning",
     "l402",
+    "x402",
+    "cashu",
     "bitcoin",
     "api-marketplace",
     "paid-api",
     "kind-31402",
-    "lightning-network",
     "nostr-protocol",
     "service-directory",
     "402"

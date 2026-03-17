@@ -756,14 +756,17 @@ function buildPillGroup(container, values, activeSet, filterType, labelFn) {
 /**
  * Maps a payment method identifier to a short human-readable label.
  *
- * @param {string} m - Raw payment method string (e.g. 'bitcoin-lightning-bolt11')
- * @returns {string} Short label (e.g. 'Lightning')
+ * @param {string} m - Raw payment method identifier (e.g. 'l402', 'x402', 'cashu', 'xcashu')
+ * @returns {string} Short label (e.g. 'L402', 'x402', 'Cashu', 'xCashu')
  */
 function formatPaymentMethod(m) {
-  if (m.includes('lightning')) return 'Lightning'
-  if (m.includes('cashu'))     return 'Cashu'
-  if (m.includes('x402'))      return 'x402'
-  return m
+  switch (m) {
+    case 'l402':   return 'L402'
+    case 'x402':   return 'x402'
+    case 'cashu':  return 'Cashu'
+    case 'xcashu': return 'xCashu'
+    default:       return m
+  }
 }
 
 /**
@@ -891,8 +894,8 @@ function parseSatringServices(data, sourceName) {
         }))
         .slice(0, 5),
       paymentMethods: s.protocol === 'X402'
-        ? ['x402-stablecoin']
-        : ['bitcoin-lightning-bolt11'],
+        ? ['x402']
+        : ['l402'],
       topics: (s.category_ids || []).map(String),
       capabilities: undefined,
       version: undefined,
@@ -935,7 +938,7 @@ function parseL402DirectoryServices(data, sourceName) {
             currency: e.pricing.currency || 'sats',
           }))
           .slice(0, 5),
-        paymentMethods: ['bitcoin-lightning-bolt11'],
+        paymentMethods: ['l402'],
         topics: (s.categories || []).filter(c => typeof c === 'string'),
         capabilities: undefined,
         version: undefined,
