@@ -10,6 +10,41 @@ Lightning payments, and **agent builders** who want AI agents that autonomously
 discover and pay for APIs. The site itself is a static HTML/CSS/JS page with no
 backend — all data comes from Nostr kind 31402 events and external directories.
 
+## Programmatic Access
+
+AI agents and other discovery pages can consume 402.pub's aggregated data:
+
+- **JavaScript API**: Call `window.get402Services()` from the page for structured JSON
+- **Download**: Click "Download services.json" in the footer for a snapshot
+- **MCP**: Use [402-mcp](https://github.com/TheCryptoDonkey/402-mcp) (`npx 402-mcp`) for native tool-based access
+- **Direct Nostr**: Subscribe to `kind: 31402` on relays listed below
+
+## Data Sources
+
+402.pub aggregates from multiple sources into a single unified directory:
+
+| Source | Protocol | Scale | Update |
+|--------|----------|-------|--------|
+| Nostr relays (7 default) | L402, x402, Cashu | Real-time streaming | Live |
+| l402.directory | L402 | ~6 curated | On page load |
+| x402 Bazaar (Coinbase CDP) | x402 (USDC on Base) | ~14,000 resources | On page load |
+| agent-commerce.store | L402 (Lightning) | ~48 endpoints | On page load |
+
+## Service Metadata (kind 31402)
+
+Each service listing includes:
+
+- **name**: Human-readable service name
+- **url**: API endpoint URL(s)
+- **about**: Description of what the service does
+- **pricing**: Per-capability pricing (amount + currency)
+- **paymentMethods**: Supported payment rails (l402, x402, cashu)
+- **topics**: Category tags for filtering
+- **website**: Project homepage (optional, via content JSON)
+- **docs**: Documentation URL (optional, via content JSON)
+- **repository**: Source code URL (optional, via content JSON)
+- **trustTier**: self-announced, discovered, or stale
+
 ## For API Operators
 
 Gate any HTTP endpoint behind a paywall using toll-booth middleware, then announce

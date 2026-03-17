@@ -1,0 +1,1658 @@
+{
+  "$schema": "https://docs.lightningenable.com/schemas/l402-manifest-v1.json",
+  "version": "1.0",
+  "service": {
+    "name": "Agent Commerce Store",
+    "description": "Agent-first API marketplace. Value-add wrappers around free public APIs with structured JSON, single-call interfaces, and agent-optimized responses.",
+    "base_url": "https://api.lightningenable.com/l402/proxy",
+    "documentation_url": "https://agent-commerce.store",
+    "contact_email": "contact@agent-commerce.store",
+    "categories": [
+      "data",
+      "weather",
+      "knowledge",
+      "research",
+      "government",
+      "finance",
+      "health",
+      "science",
+      "nutrition"
+    ],
+    "status": "early_access",
+    "payments_refundable": false,
+    "test_free_base": "https://agent-commerce.store/api",
+    "schemas_url": "https://agent-commerce.store/llms-full.txt"
+  },
+  "l402": {
+    "default_price_sats": 3,
+    "payment_flow": "402_challenge_response",
+    "auth_header_format": "L402 <base64-macaroon>:<hex-preimage>",
+    "capabilities": {
+      "preimage_in_response": true,
+      "supported_currencies": [
+        "BTC"
+      ]
+    },
+    "idempotency": {
+      "supported": true,
+      "header": "X-Idempotency-Key",
+      "description": "Send a unique key per request to prevent duplicate invoices on rapid/retried requests. Same key within 5 minutes returns the same 402 challenge.",
+      "recommended": true
+    }
+  },
+  "response_envelope": {
+    "format": {
+      "status": "ok|error",
+      "data": "{...}",
+      "meta": {
+        "token_estimate": "int",
+        "price_sats": "int",
+        "cached": "bool",
+        "timestamp": "ISO8601",
+        "path": "string"
+      }
+    }
+  },
+  "endpoints": [
+    {
+      "id": "get-weather-forecast",
+      "proxy_id": "weather-intel-e0cf",
+      "path": "/forecast",
+      "method": "GET",
+      "summary": "Structured weather forecast with outdoor activity recommendations",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 3
+      },
+      "l402_enabled": true,
+      "tags": [
+        "weather",
+        "forecast"
+      ],
+      "region": "US",
+      "source": "NWS",
+      "parameters": [
+        {
+          "name": "latitude",
+          "type": "double",
+          "required": true,
+          "range": [
+            -90,
+            90
+          ],
+          "format": "decimal degrees",
+          "example": 40.7128
+        },
+        {
+          "name": "longitude",
+          "type": "double",
+          "required": true,
+          "range": [
+            -180,
+            180
+          ],
+          "format": "decimal degrees",
+          "example": -74.006
+        }
+      ],
+      "example_url": "/forecast?latitude=40.7128&longitude=-74.0060",
+      "notes": "NWS may return transient 404s; server retries 3x automatically",
+      "full_url": "https://api.lightningenable.com/l402/proxy/weather-intel-e0cf/forecast",
+      "test_free_url": "https://agent-commerce.store/api/weather/forecast"
+    },
+    {
+      "id": "get-weather-alerts",
+      "proxy_id": "weather-intel-e0cf",
+      "path": "/alerts",
+      "method": "GET",
+      "summary": "Active weather alerts with severity scoring (0-100)",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 2
+      },
+      "l402_enabled": true,
+      "tags": [
+        "weather",
+        "alerts",
+        "safety"
+      ],
+      "region": "US",
+      "source": "NWS",
+      "parameters": [
+        {
+          "name": "state",
+          "type": "string",
+          "required": true,
+          "format": "2-letter US state code",
+          "enum": [
+            "AL",
+            "AK",
+            "AZ",
+            "AR",
+            "CA",
+            "CO",
+            "CT",
+            "DE",
+            "FL",
+            "GA",
+            "HI",
+            "ID",
+            "IL",
+            "IN",
+            "IA",
+            "KS",
+            "KY",
+            "LA",
+            "ME",
+            "MD",
+            "MA",
+            "MI",
+            "MN",
+            "MS",
+            "MO",
+            "MT",
+            "NE",
+            "NV",
+            "NH",
+            "NJ",
+            "NM",
+            "NY",
+            "NC",
+            "ND",
+            "OH",
+            "OK",
+            "OR",
+            "PA",
+            "RI",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "VT",
+            "VA",
+            "WA",
+            "WV",
+            "WI",
+            "WY"
+          ],
+          "example": "TX"
+        }
+      ],
+      "example_url": "/alerts?state=TX",
+      "full_url": "https://api.lightningenable.com/l402/proxy/weather-intel-e0cf/alerts",
+      "test_free_url": "https://agent-commerce.store/api/weather/alerts"
+    },
+    {
+      "id": "get-weather-conditions",
+      "proxy_id": "weather-intel-e0cf",
+      "path": "/conditions",
+      "method": "GET",
+      "summary": "Current conditions from nearest observation station (F and C)",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 2
+      },
+      "l402_enabled": true,
+      "tags": [
+        "weather",
+        "current"
+      ],
+      "region": "US",
+      "source": "NWS",
+      "parameters": [
+        {
+          "name": "latitude",
+          "type": "double",
+          "required": true,
+          "range": [
+            -90,
+            90
+          ],
+          "example": 40.7128
+        },
+        {
+          "name": "longitude",
+          "type": "double",
+          "required": true,
+          "range": [
+            -180,
+            180
+          ],
+          "example": -74.006
+        }
+      ],
+      "example_url": "/conditions?latitude=40.7128&longitude=-74.0060",
+      "full_url": "https://api.lightningenable.com/l402/proxy/weather-intel-e0cf/conditions",
+      "test_free_url": "https://agent-commerce.store/api/weather/conditions"
+    },
+    {
+      "id": "get-wikipedia-summary",
+      "proxy_id": "smart-wikipedia-aaec",
+      "path": "/summary",
+      "method": "GET",
+      "summary": "Wikipedia summary with key facts, disambiguation, and controversy flags",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 2
+      },
+      "l402_enabled": true,
+      "tags": [
+        "wikipedia",
+        "knowledge"
+      ],
+      "region": "global",
+      "source": "Wikipedia",
+      "parameters": [
+        {
+          "name": "topic",
+          "type": "string",
+          "required": true,
+          "description": "Wikipedia article title",
+          "examples": [
+            "Bitcoin",
+            "Albert Einstein",
+            "Lightning Network"
+          ]
+        }
+      ],
+      "example_url": "/summary?topic=Bitcoin",
+      "notes": "Parameter is 'topic' not 'query'. Use exact article titles for best results.",
+      "full_url": "https://api.lightningenable.com/l402/proxy/smart-wikipedia-aaec/summary",
+      "test_free_url": "https://agent-commerce.store/api/wikipedia/summary"
+    },
+    {
+      "id": "get-wikipedia-entity",
+      "proxy_id": "smart-wikipedia-aaec",
+      "path": "/entity",
+      "method": "GET",
+      "summary": "Wikidata entity with structured properties and aliases",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 3
+      },
+      "l402_enabled": true,
+      "tags": [
+        "wikipedia",
+        "wikidata",
+        "knowledge"
+      ],
+      "region": "global",
+      "source": "Wikidata",
+      "parameters": [
+        {
+          "name": "topic",
+          "type": "string",
+          "required": true,
+          "examples": [
+            "Satoshi Nakamoto",
+            "Bitcoin",
+            "United States"
+          ]
+        }
+      ],
+      "example_url": "/entity?topic=Satoshi+Nakamoto",
+      "full_url": "https://api.lightningenable.com/l402/proxy/smart-wikipedia-aaec/entity",
+      "test_free_url": "https://agent-commerce.store/api/wikipedia/entity"
+    },
+    {
+      "id": "get-wikipedia-related",
+      "proxy_id": "smart-wikipedia-aaec",
+      "path": "/related",
+      "method": "GET",
+      "summary": "Related topics, see-also links, and categories",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 2
+      },
+      "l402_enabled": true,
+      "tags": [
+        "wikipedia",
+        "knowledge"
+      ],
+      "region": "global",
+      "source": "Wikipedia",
+      "parameters": [
+        {
+          "name": "topic",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "example_url": "/related?topic=Lightning+Network",
+      "full_url": "https://api.lightningenable.com/l402/proxy/smart-wikipedia-aaec/related",
+      "test_free_url": "https://agent-commerce.store/api/wikipedia/related"
+    },
+    {
+      "id": "get-papers-search",
+      "proxy_id": "paper-scout-247e",
+      "path": "/search",
+      "method": "GET",
+      "summary": "Search arXiv papers, returns structured JSON instead of Atom XML",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 3
+      },
+      "l402_enabled": true,
+      "tags": [
+        "papers",
+        "research",
+        "arxiv"
+      ],
+      "region": "global",
+      "source": "arXiv",
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "start",
+          "type": "int",
+          "required": false,
+          "default": 0
+        },
+        {
+          "name": "maxResults",
+          "type": "int",
+          "required": false,
+          "default": 10,
+          "max": 50
+        }
+      ],
+      "example_url": "/search?query=transformer+attention&maxResults=5",
+      "full_url": "https://api.lightningenable.com/l402/proxy/paper-scout-247e/search",
+      "test_free_url": "https://agent-commerce.store/api/papers/search"
+    },
+    {
+      "id": "get-papers-detail",
+      "proxy_id": "paper-scout-247e",
+      "path": "/{arxivId}",
+      "method": "GET",
+      "summary": "Paper details by arXiv ID with parsed metadata",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 3
+      },
+      "l402_enabled": true,
+      "tags": [
+        "papers",
+        "research",
+        "arxiv"
+      ],
+      "region": "global",
+      "source": "arXiv",
+      "parameters": [
+        {
+          "name": "arxivId",
+          "type": "string",
+          "required": true,
+          "in": "path",
+          "format": "arXiv ID",
+          "examples": [
+            "1706.03762",
+            "2301.00001"
+          ]
+        }
+      ],
+      "example_url": "/1706.03762",
+      "full_url": "https://api.lightningenable.com/l402/proxy/paper-scout-247e/{arxivId}",
+      "test_free_url": "https://agent-commerce.store/api/papers/{arxivId}"
+    },
+    {
+      "id": "get-census-population",
+      "proxy_id": "census-query-2a22",
+      "path": "/population",
+      "method": "GET",
+      "summary": "Population data by place name with FIPS resolution",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 3
+      },
+      "l402_enabled": true,
+      "tags": [
+        "census",
+        "population",
+        "government"
+      ],
+      "region": "US",
+      "source": "US Census Bureau",
+      "parameters": [
+        {
+          "name": "place",
+          "type": "string",
+          "required": true,
+          "format": "City, State",
+          "examples": [
+            "Houston, Texas",
+            "Austin, TX",
+            "New York, New York"
+          ]
+        }
+      ],
+      "example_url": "/population?place=Houston%2C+Texas",
+      "notes": "Full state names work better than abbreviations. Ambiguous names may resolve to unexpected places.",
+      "full_url": "https://api.lightningenable.com/l402/proxy/census-query-2a22/population",
+      "test_free_url": "https://agent-commerce.store/api/census/population"
+    },
+    {
+      "id": "get-census-demographics",
+      "proxy_id": "census-query-2a22",
+      "path": "/demographics",
+      "method": "GET",
+      "summary": "Full demographic breakdown: age, race, housing",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 5
+      },
+      "l402_enabled": true,
+      "tags": [
+        "census",
+        "demographics",
+        "government"
+      ],
+      "region": "US",
+      "source": "US Census Bureau",
+      "parameters": [
+        {
+          "name": "place",
+          "type": "string",
+          "required": true,
+          "format": "City, State"
+        }
+      ],
+      "example_url": "/demographics?place=Austin%2C+Texas",
+      "full_url": "https://api.lightningenable.com/l402/proxy/census-query-2a22/demographics",
+      "test_free_url": "https://agent-commerce.store/api/census/demographics"
+    },
+    {
+      "id": "get-edgar-search",
+      "proxy_id": "sec-edgar-38a5",
+      "path": "/search",
+      "method": "GET",
+      "summary": "Full-text search SEC filings with type descriptions",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 8
+      },
+      "l402_enabled": true,
+      "tags": [
+        "sec",
+        "edgar",
+        "filings",
+        "finance"
+      ],
+      "region": "US",
+      "source": "SEC EDGAR",
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true,
+          "description": "company name, ticker, or filing text"
+        },
+        {
+          "name": "dateRange",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "form",
+          "type": "string",
+          "required": false,
+          "examples": [
+            "10-K",
+            "10-Q",
+            "8-K",
+            "S-1",
+            "DEF 14A"
+          ]
+        }
+      ],
+      "example_url": "/search?query=Tesla&form=10-K",
+      "full_url": "https://api.lightningenable.com/l402/proxy/sec-edgar-38a5/search",
+      "test_free_url": "https://agent-commerce.store/api/edgar/search"
+    },
+    {
+      "id": "get-edgar-company",
+      "proxy_id": "sec-edgar-38a5",
+      "path": "/company/{cik}",
+      "method": "GET",
+      "summary": "Company XBRL facts + recent filings in one call",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 10
+      },
+      "l402_enabled": true,
+      "tags": [
+        "sec",
+        "edgar",
+        "company",
+        "finance"
+      ],
+      "region": "US",
+      "source": "SEC EDGAR",
+      "parameters": [
+        {
+          "name": "cik",
+          "type": "string",
+          "required": true,
+          "in": "path",
+          "description": "CIK number, auto-padded to 10 digits",
+          "examples": [
+            "320193",
+            "1318605"
+          ]
+        }
+      ],
+      "example_url": "/company/320193",
+      "full_url": "https://api.lightningenable.com/l402/proxy/sec-edgar-38a5/company/{cik}",
+      "test_free_url": "https://agent-commerce.store/api/edgar/company/{cik}"
+    },
+    {
+      "id": "get-edgar-filing",
+      "proxy_id": "sec-edgar-38a5",
+      "path": "/filing/{accessionNumber}",
+      "method": "GET",
+      "summary": "Filing details with parsed metadata and document URLs",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 10
+      },
+      "l402_enabled": true,
+      "tags": [
+        "sec",
+        "edgar",
+        "filing",
+        "finance"
+      ],
+      "region": "US",
+      "source": "SEC EDGAR",
+      "parameters": [
+        {
+          "name": "accessionNumber",
+          "type": "string",
+          "required": true,
+          "in": "path",
+          "format": "0000320193-24-000123"
+        }
+      ],
+      "example_url": "/filing/0001628280-24-002390",
+      "full_url": "https://api.lightningenable.com/l402/proxy/sec-edgar-38a5/filing/{accessionNumber}",
+      "test_free_url": "https://agent-commerce.store/api/edgar/filing/{accessionNumber}"
+    },
+    {
+      "id": "get-openfda-adverse-events",
+      "proxy_id": "openfda-drug-safety-781f",
+      "path": "/adverse-events",
+      "method": "GET",
+      "summary": "FDA adverse event reports with severity scoring and reaction summaries",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 5
+      },
+      "l402_enabled": true,
+      "tags": [
+        "fda",
+        "drugs",
+        "safety",
+        "health"
+      ],
+      "region": "US",
+      "source": "openFDA",
+      "parameters": [
+        {
+          "name": "drug",
+          "type": "string",
+          "required": true,
+          "examples": [
+            "aspirin",
+            "ibuprofen",
+            "metformin"
+          ]
+        },
+        {
+          "name": "limit",
+          "type": "int",
+          "required": false,
+          "default": 10
+        }
+      ],
+      "example_url": "/adverse-events?drug=aspirin&limit=5",
+      "full_url": "https://api.lightningenable.com/l402/proxy/openfda-drug-safety-781f/adverse-events",
+      "test_free_url": "https://agent-commerce.store/api/openfda/adverse-events"
+    },
+    {
+      "id": "get-openfda-recalls",
+      "proxy_id": "openfda-drug-safety-781f",
+      "path": "/recalls",
+      "method": "GET",
+      "summary": "FDA drug and device recall search",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 5
+      },
+      "l402_enabled": true,
+      "tags": [
+        "fda",
+        "recalls",
+        "safety",
+        "health"
+      ],
+      "region": "US",
+      "source": "openFDA",
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "type": "int",
+          "required": false,
+          "default": 10
+        }
+      ],
+      "example_url": "/recalls?query=insulin+pump",
+      "full_url": "https://api.lightningenable.com/l402/proxy/openfda-drug-safety-781f/recalls",
+      "test_free_url": "https://agent-commerce.store/api/openfda/recalls"
+    },
+    {
+      "id": "get-openfda-labels",
+      "proxy_id": "openfda-drug-safety-781f",
+      "path": "/labels",
+      "method": "GET",
+      "summary": "Drug label: indications, warnings, dosage, contraindications",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 5
+      },
+      "l402_enabled": true,
+      "tags": [
+        "fda",
+        "drugs",
+        "labels",
+        "health"
+      ],
+      "region": "US",
+      "source": "openFDA",
+      "parameters": [
+        {
+          "name": "drug",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "example_url": "/labels?drug=ibuprofen",
+      "full_url": "https://api.lightningenable.com/l402/proxy/openfda-drug-safety-781f/labels",
+      "test_free_url": "https://agent-commerce.store/api/openfda/labels"
+    },
+    {
+      "id": "get-pubmed-search",
+      "proxy_id": "pubmed-biomedical-bc1e",
+      "path": "/search",
+      "method": "GET",
+      "summary": "Search PubMed (esearch+efetch combined), XML to structured JSON",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 6
+      },
+      "l402_enabled": true,
+      "tags": [
+        "pubmed",
+        "research",
+        "biomedical"
+      ],
+      "region": "global",
+      "source": "NCBI PubMed",
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "type": "int",
+          "required": false,
+          "default": 10,
+          "max": 50
+        }
+      ],
+      "example_url": "/search?query=CRISPR+gene+therapy&limit=5",
+      "full_url": "https://api.lightningenable.com/l402/proxy/pubmed-biomedical-bc1e/search",
+      "test_free_url": "https://agent-commerce.store/api/pubmed/search"
+    },
+    {
+      "id": "get-pubmed-article",
+      "proxy_id": "pubmed-biomedical-bc1e",
+      "path": "/{pmid}",
+      "method": "GET",
+      "summary": "Article details with structured abstract sections and MeSH terms",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 7
+      },
+      "l402_enabled": true,
+      "tags": [
+        "pubmed",
+        "research",
+        "biomedical"
+      ],
+      "region": "global",
+      "source": "NCBI PubMed",
+      "parameters": [
+        {
+          "name": "pmid",
+          "type": "string",
+          "required": true,
+          "in": "path",
+          "examples": [
+            "38123456"
+          ]
+        }
+      ],
+      "example_url": "/38123456",
+      "full_url": "https://api.lightningenable.com/l402/proxy/pubmed-biomedical-bc1e/{pmid}",
+      "test_free_url": "https://agent-commerce.store/api/pubmed/{pmid}"
+    },
+    {
+      "id": "get-fred-search",
+      "proxy_id": "fred-economic-data-bf5f",
+      "path": "/search",
+      "method": "GET",
+      "summary": "Search FRED economic data series",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 4
+      },
+      "l402_enabled": true,
+      "tags": [
+        "fred",
+        "economics",
+        "data",
+        "finance"
+      ],
+      "region": "US/global",
+      "source": "Federal Reserve Bank of St. Louis",
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "type": "int",
+          "required": false,
+          "default": 10
+        }
+      ],
+      "example_url": "/search?query=unemployment+rate",
+      "notes": "Common series IDs: GDP, UNRATE, CPIAUCSL, DFF, SP500, FEDFUNDS",
+      "full_url": "https://api.lightningenable.com/l402/proxy/fred-economic-data-bf5f/search",
+      "test_free_url": "https://agent-commerce.store/api/fred/search"
+    },
+    {
+      "id": "get-fred-series",
+      "proxy_id": "fred-economic-data-bf5f",
+      "path": "/series/{seriesId}",
+      "method": "GET",
+      "summary": "Series metadata + recent observations + computed statistics",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 5
+      },
+      "l402_enabled": true,
+      "tags": [
+        "fred",
+        "economics",
+        "timeseries",
+        "finance"
+      ],
+      "region": "US/global",
+      "source": "Federal Reserve Bank of St. Louis",
+      "parameters": [
+        {
+          "name": "seriesId",
+          "type": "string",
+          "required": true,
+          "in": "path",
+          "examples": [
+            "UNRATE",
+            "GDP",
+            "CPIAUCSL",
+            "DFF",
+            "SP500"
+          ]
+        }
+      ],
+      "example_url": "/series/UNRATE",
+      "full_url": "https://api.lightningenable.com/l402/proxy/fred-economic-data-bf5f/series/{seriesId}",
+      "test_free_url": "https://agent-commerce.store/api/fred/series/{seriesId}"
+    },
+    {
+      "id": "get-fred-series-data",
+      "proxy_id": "fred-economic-data-bf5f",
+      "path": "/series/{seriesId}/data",
+      "method": "GET",
+      "summary": "Time series data with min/max/avg/change statistics",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 5
+      },
+      "l402_enabled": true,
+      "tags": [
+        "fred",
+        "economics",
+        "timeseries",
+        "finance"
+      ],
+      "region": "US/global",
+      "source": "Federal Reserve Bank of St. Louis",
+      "parameters": [
+        {
+          "name": "seriesId",
+          "type": "string",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "start",
+          "type": "string",
+          "required": false,
+          "format": "YYYY-MM-DD"
+        },
+        {
+          "name": "end",
+          "type": "string",
+          "required": false,
+          "format": "YYYY-MM-DD"
+        }
+      ],
+      "example_url": "/series/UNRATE/data?start=2023-01-01&end=2024-12-31",
+      "full_url": "https://api.lightningenable.com/l402/proxy/fred-economic-data-bf5f/series/{seriesId}/data",
+      "test_free_url": "https://agent-commerce.store/api/fred/series/{seriesId}/data"
+    },
+    {
+      "id": "get-openalex-search",
+      "proxy_id": "openalex-scholarly-c9ff",
+      "path": "/search",
+      "method": "GET",
+      "summary": "Search scholarly works with reconstructed abstracts and open access status",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 3
+      },
+      "l402_enabled": true,
+      "tags": [
+        "openalex",
+        "research",
+        "scholarly"
+      ],
+      "region": "global",
+      "source": "OpenAlex",
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "type": "int",
+          "required": false,
+          "default": 10,
+          "max": 50
+        }
+      ],
+      "example_url": "/search?query=machine+learning+healthcare",
+      "full_url": "https://api.lightningenable.com/l402/proxy/openalex-scholarly-c9ff/search",
+      "test_free_url": "https://agent-commerce.store/api/openalex/search"
+    },
+    {
+      "id": "get-openalex-work",
+      "proxy_id": "openalex-scholarly-c9ff",
+      "path": "/work/{id}",
+      "method": "GET",
+      "summary": "Work details with citations, topics, and PDF URLs",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 5
+      },
+      "l402_enabled": true,
+      "tags": [
+        "openalex",
+        "research",
+        "scholarly"
+      ],
+      "region": "global",
+      "source": "OpenAlex",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "in": "path",
+          "description": "OpenAlex work ID or DOI",
+          "examples": [
+            "W2741809807"
+          ]
+        }
+      ],
+      "example_url": "/work/W2741809807",
+      "full_url": "https://api.lightningenable.com/l402/proxy/openalex-scholarly-c9ff/work/{id}",
+      "test_free_url": "https://agent-commerce.store/api/openalex/work/{id}"
+    },
+    {
+      "id": "get-openalex-author",
+      "proxy_id": "openalex-scholarly-c9ff",
+      "path": "/author/{id}",
+      "method": "GET",
+      "summary": "Author profile: works count, citations, h-index, topics",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 3
+      },
+      "l402_enabled": true,
+      "tags": [
+        "openalex",
+        "research",
+        "author"
+      ],
+      "region": "global",
+      "source": "OpenAlex",
+      "parameters": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "in": "path",
+          "examples": [
+            "A5023888391"
+          ]
+        }
+      ],
+      "example_url": "/author/A5023888391",
+      "full_url": "https://api.lightningenable.com/l402/proxy/openalex-scholarly-c9ff/author/{id}",
+      "test_free_url": "https://agent-commerce.store/api/openalex/author/{id}"
+    },
+    {
+      "id": "get-crossref-search",
+      "proxy_id": "crossref-doi-ecfd",
+      "path": "/search",
+      "method": "GET",
+      "summary": "Search works with normalized authors, license info, formatted citations",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 2
+      },
+      "l402_enabled": true,
+      "tags": [
+        "crossref",
+        "doi",
+        "research"
+      ],
+      "region": "global",
+      "source": "Crossref",
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "type": "int",
+          "required": false,
+          "default": 10
+        }
+      ],
+      "example_url": "/search?query=climate+change+agriculture",
+      "full_url": "https://api.lightningenable.com/l402/proxy/crossref-doi-ecfd/search",
+      "test_free_url": "https://agent-commerce.store/api/crossref/search"
+    },
+    {
+      "id": "get-crossref-doi",
+      "proxy_id": "crossref-doi-ecfd",
+      "path": "/doi/{doi}",
+      "method": "GET",
+      "summary": "Resolve DOI to full metadata with publisher, license, citations",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 2
+      },
+      "l402_enabled": true,
+      "tags": [
+        "crossref",
+        "doi",
+        "research"
+      ],
+      "region": "global",
+      "source": "Crossref",
+      "parameters": [
+        {
+          "name": "doi",
+          "type": "string",
+          "required": true,
+          "in": "path",
+          "format": "DOI with slashes",
+          "examples": [
+            "10.1038/nature12373",
+            "10.1056/NEJMoa2312345"
+          ]
+        }
+      ],
+      "example_url": "/doi/10.1038/nature12373",
+      "full_url": "https://api.lightningenable.com/l402/proxy/crossref-doi-ecfd/doi/{doi}",
+      "test_free_url": "https://agent-commerce.store/api/crossref/doi/{doi}"
+    },
+    {
+      "id": "get-federalregister-search",
+      "proxy_id": "federal-register-5297",
+      "path": "/search",
+      "method": "GET",
+      "summary": "Search Federal Register documents [DISABLED]",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 3
+      },
+      "l402_enabled": false,
+      "tags": [
+        "federal-register",
+        "regulations",
+        "government"
+      ],
+      "region": "US",
+      "source": "Federal Register",
+      "status": "temporarily_unavailable",
+      "status_reason": "upstream blocks cloud IP ranges",
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "required": false,
+          "enum": [
+            "rule",
+            "proposed_rule",
+            "notice",
+            "presidential_document"
+          ]
+        },
+        {
+          "name": "limit",
+          "type": "int",
+          "required": false,
+          "default": 10
+        }
+      ],
+      "full_url": "https://api.lightningenable.com/l402/proxy/federal-register-5297/search",
+      "test_free_url": "https://agent-commerce.store/api/federalregister/search"
+    },
+    {
+      "id": "get-federalregister-document",
+      "proxy_id": "federal-register-5297",
+      "path": "/document/{number}",
+      "method": "GET",
+      "summary": "Document details [DISABLED]",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 5
+      },
+      "l402_enabled": false,
+      "tags": [
+        "federal-register",
+        "regulations",
+        "government"
+      ],
+      "region": "US",
+      "source": "Federal Register",
+      "status": "temporarily_unavailable",
+      "parameters": [
+        {
+          "name": "number",
+          "type": "string",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "full_url": "https://api.lightningenable.com/l402/proxy/federal-register-5297/document/{number}",
+      "test_free_url": "https://agent-commerce.store/api/federalregister/document/{number}"
+    },
+    {
+      "id": "get-federalregister-recent",
+      "proxy_id": "federal-register-5297",
+      "path": "/recent",
+      "method": "GET",
+      "summary": "Recent documents by agency [DISABLED]",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 3
+      },
+      "l402_enabled": false,
+      "tags": [
+        "federal-register",
+        "regulations",
+        "government"
+      ],
+      "region": "US",
+      "source": "Federal Register",
+      "status": "temporarily_unavailable",
+      "parameters": [
+        {
+          "name": "agencies",
+          "type": "string",
+          "required": false,
+          "format": "comma-separated agency slugs"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "required": false,
+          "enum": [
+            "rule",
+            "proposed_rule",
+            "notice",
+            "presidential_document"
+          ]
+        }
+      ],
+      "full_url": "https://api.lightningenable.com/l402/proxy/federal-register-5297/recent",
+      "test_free_url": "https://agent-commerce.store/api/federalregister/recent"
+    },
+    {
+      "id": "get-currency-latest",
+      "proxy_id": "currency-exchange-9b9c",
+      "path": "/latest",
+      "method": "GET",
+      "summary": "Latest ECB exchange rates with currency names and inverse rates",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 1
+      },
+      "l402_enabled": true,
+      "tags": [
+        "currency",
+        "exchange",
+        "finance"
+      ],
+      "region": "global",
+      "source": "ECB via Frankfurter",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "string",
+          "required": false,
+          "default": "USD",
+          "format": "ISO 4217"
+        },
+        {
+          "name": "symbols",
+          "type": "string",
+          "required": false,
+          "format": "comma-separated ISO 4217 codes",
+          "examples": [
+            "EUR,GBP,JPY"
+          ]
+        }
+      ],
+      "example_url": "/latest?base=USD&symbols=EUR,GBP,JPY",
+      "notes": "~33 currencies. ECB data updates daily ~16:00 CET. No weekend/holiday updates.",
+      "full_url": "https://api.lightningenable.com/l402/proxy/currency-exchange-9b9c/latest",
+      "test_free_url": "https://agent-commerce.store/api/currency/latest"
+    },
+    {
+      "id": "get-currency-convert",
+      "proxy_id": "currency-exchange-9b9c",
+      "path": "/convert",
+      "method": "GET",
+      "summary": "Currency conversion with both directions and currency names",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 1
+      },
+      "l402_enabled": true,
+      "tags": [
+        "currency",
+        "conversion",
+        "finance"
+      ],
+      "region": "global",
+      "source": "ECB via Frankfurter",
+      "parameters": [
+        {
+          "name": "from",
+          "type": "string",
+          "required": true,
+          "format": "ISO 4217",
+          "examples": [
+            "USD",
+            "EUR",
+            "GBP"
+          ]
+        },
+        {
+          "name": "to",
+          "type": "string",
+          "required": true,
+          "format": "ISO 4217"
+        },
+        {
+          "name": "amount",
+          "type": "decimal",
+          "required": false,
+          "default": 1
+        }
+      ],
+      "example_url": "/convert?from=USD&to=EUR&amount=100",
+      "full_url": "https://api.lightningenable.com/l402/proxy/currency-exchange-9b9c/convert",
+      "test_free_url": "https://agent-commerce.store/api/currency/convert"
+    },
+    {
+      "id": "get-currency-historical",
+      "proxy_id": "currency-exchange-9b9c",
+      "path": "/historical",
+      "method": "GET",
+      "summary": "Historical rates with percentage change and min/max/avg stats",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 2
+      },
+      "l402_enabled": true,
+      "tags": [
+        "currency",
+        "historical",
+        "finance"
+      ],
+      "region": "global",
+      "source": "ECB via Frankfurter",
+      "parameters": [
+        {
+          "name": "base",
+          "type": "string",
+          "required": true,
+          "format": "ISO 4217"
+        },
+        {
+          "name": "start",
+          "type": "string",
+          "required": true,
+          "format": "YYYY-MM-DD"
+        },
+        {
+          "name": "end",
+          "type": "string",
+          "required": true,
+          "format": "YYYY-MM-DD"
+        }
+      ],
+      "example_url": "/historical?base=USD&start=2024-01-01&end=2024-12-31",
+      "full_url": "https://api.lightningenable.com/l402/proxy/currency-exchange-9b9c/historical",
+      "test_free_url": "https://agent-commerce.store/api/currency/historical"
+    },
+    {
+      "id": "get-airquality-current",
+      "proxy_id": "air-quality-index-e42f",
+      "path": "/current",
+      "method": "GET",
+      "summary": "Current AQI with health recommendations and dominant pollutant",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 2
+      },
+      "l402_enabled": true,
+      "tags": [
+        "airquality",
+        "aqi",
+        "health",
+        "environment"
+      ],
+      "region": "US",
+      "source": "EPA AirNow",
+      "parameters": [
+        {
+          "name": "latitude",
+          "type": "double",
+          "required": true,
+          "range": [
+            -90,
+            90
+          ]
+        },
+        {
+          "name": "longitude",
+          "type": "double",
+          "required": true,
+          "range": [
+            -180,
+            180
+          ]
+        }
+      ],
+      "example_url": "/current?latitude=40.7128&longitude=-74.0060",
+      "notes": "Data updates hourly",
+      "full_url": "https://api.lightningenable.com/l402/proxy/air-quality-index-e42f/current",
+      "test_free_url": "https://agent-commerce.store/api/airquality/current"
+    },
+    {
+      "id": "get-airquality-forecast",
+      "proxy_id": "air-quality-index-e42f",
+      "path": "/forecast",
+      "method": "GET",
+      "summary": "AQI forecast with worst day identification",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 2
+      },
+      "l402_enabled": true,
+      "tags": [
+        "airquality",
+        "aqi",
+        "forecast",
+        "health"
+      ],
+      "region": "US",
+      "source": "EPA AirNow",
+      "parameters": [
+        {
+          "name": "latitude",
+          "type": "double",
+          "required": true,
+          "range": [
+            -90,
+            90
+          ]
+        },
+        {
+          "name": "longitude",
+          "type": "double",
+          "required": true,
+          "range": [
+            -180,
+            180
+          ]
+        }
+      ],
+      "example_url": "/forecast?latitude=40.7128&longitude=-74.0060",
+      "full_url": "https://api.lightningenable.com/l402/proxy/air-quality-index-e42f/forecast",
+      "test_free_url": "https://agent-commerce.store/api/airquality/forecast"
+    },
+    {
+      "id": "get-nutrition-search",
+      "proxy_id": "nutrition-facts-f147",
+      "path": "/search",
+      "method": "GET",
+      "summary": "Search USDA foods with key nutrients extracted",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 3
+      },
+      "l402_enabled": true,
+      "tags": [
+        "nutrition",
+        "food",
+        "usda",
+        "health"
+      ],
+      "region": "US",
+      "source": "USDA FoodData Central",
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true,
+          "examples": [
+            "chicken breast",
+            "apple",
+            "brown rice"
+          ]
+        },
+        {
+          "name": "limit",
+          "type": "int",
+          "required": false,
+          "default": 10
+        }
+      ],
+      "example_url": "/search?query=chicken+breast",
+      "full_url": "https://api.lightningenable.com/l402/proxy/nutrition-facts-f147/search",
+      "test_free_url": "https://agent-commerce.store/api/nutrition/search"
+    },
+    {
+      "id": "get-nutrition-detail",
+      "proxy_id": "nutrition-facts-f147",
+      "path": "/{fdcId}",
+      "method": "GET",
+      "summary": "Full nutrition facts with daily value percentages",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 3
+      },
+      "l402_enabled": true,
+      "tags": [
+        "nutrition",
+        "food",
+        "usda",
+        "health"
+      ],
+      "region": "US",
+      "source": "USDA FoodData Central",
+      "parameters": [
+        {
+          "name": "fdcId",
+          "type": "int",
+          "required": true,
+          "in": "path",
+          "description": "FoodData Central ID from search results"
+        }
+      ],
+      "example_url": "/171477",
+      "full_url": "https://api.lightningenable.com/l402/proxy/nutrition-facts-f147/{fdcId}",
+      "test_free_url": "https://agent-commerce.store/api/nutrition/{fdcId}"
+    },
+    {
+      "id": "get-research-comprehensive",
+      "proxy_id": "research-suite-1088",
+      "path": "/comprehensive",
+      "method": "GET",
+      "summary": "Parallel search across arXiv + PubMed + OpenAlex + Crossref",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 10
+      },
+      "l402_enabled": true,
+      "tags": [
+        "suite",
+        "research",
+        "arxiv",
+        "pubmed",
+        "openalex",
+        "crossref"
+      ],
+      "region": "global",
+      "sources": [
+        "arXiv",
+        "PubMed",
+        "OpenAlex",
+        "Crossref"
+      ],
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "limit",
+          "type": "int",
+          "required": false,
+          "default": 5,
+          "description": "max results per source"
+        }
+      ],
+      "example_url": "/comprehensive?query=transformer+attention&limit=3",
+      "notes": "Failed sources return {error, message} instead of results; remaining sources still returned.",
+      "full_url": "https://api.lightningenable.com/l402/proxy/research-suite-1088/comprehensive",
+      "test_free_url": "https://agent-commerce.store/api/research/comprehensive"
+    },
+    {
+      "id": "get-finance-overview",
+      "proxy_id": "finance-suite-0bb1",
+      "path": "/overview",
+      "method": "GET",
+      "summary": "Parallel query: SEC filings + FRED economic data + currency rates",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 10
+      },
+      "l402_enabled": true,
+      "tags": [
+        "suite",
+        "finance",
+        "edgar",
+        "fred",
+        "currency"
+      ],
+      "region": "US/global",
+      "sources": [
+        "SEC EDGAR",
+        "FRED",
+        "Currency Exchange"
+      ],
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true,
+          "description": "company name, ticker, or financial topic"
+        },
+        {
+          "name": "symbols",
+          "type": "string",
+          "required": false,
+          "format": "comma-separated ISO 4217 codes"
+        }
+      ],
+      "example_url": "/overview?query=Tesla&symbols=EUR,GBP",
+      "full_url": "https://api.lightningenable.com/l402/proxy/finance-suite-0bb1/overview",
+      "test_free_url": "https://agent-commerce.store/api/finance/overview"
+    },
+    {
+      "id": "get-compliance-search",
+      "proxy_id": "compliance-suite-e352",
+      "path": "/search",
+      "method": "GET",
+      "summary": "Parallel query: FDA safety data + SEC filings",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 8
+      },
+      "l402_enabled": true,
+      "tags": [
+        "suite",
+        "compliance",
+        "fda",
+        "edgar"
+      ],
+      "region": "US",
+      "sources": [
+        "OpenFDA",
+        "SEC EDGAR"
+      ],
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "required": false,
+          "enum": [
+            "regulation",
+            "safety",
+            "filing"
+          ]
+        },
+        {
+          "name": "limit",
+          "type": "int",
+          "required": false,
+          "default": 5,
+          "description": "max results per source"
+        }
+      ],
+      "example_url": "/search?query=artificial+intelligence+regulation",
+      "notes": "Federal Register source currently disabled due to upstream IP blocking.",
+      "full_url": "https://api.lightningenable.com/l402/proxy/compliance-suite-e352/search",
+      "test_free_url": "https://agent-commerce.store/api/compliance/search"
+    },
+    {
+      "id": "get-health-overview",
+      "proxy_id": "health-suite-d898",
+      "path": "/overview",
+      "method": "GET",
+      "summary": "Parallel query: PubMed + FDA safety + nutrition + air quality",
+      "pricing": {
+        "model": "perrequest",
+        "base_price_sats": 10
+      },
+      "l402_enabled": true,
+      "tags": [
+        "suite",
+        "health",
+        "pubmed",
+        "fda",
+        "nutrition",
+        "airquality"
+      ],
+      "region": "US/global",
+      "sources": [
+        "PubMed",
+        "OpenFDA",
+        "USDA FoodData Central",
+        "EPA AirNow"
+      ],
+      "parameters": [
+        {
+          "name": "query",
+          "type": "string",
+          "required": true,
+          "description": "health topic, drug name, or condition"
+        },
+        {
+          "name": "latitude",
+          "type": "double",
+          "required": false,
+          "range": [
+            -90,
+            90
+          ],
+          "description": "for air quality data"
+        },
+        {
+          "name": "longitude",
+          "type": "double",
+          "required": false,
+          "range": [
+            -180,
+            180
+          ],
+          "description": "for air quality data"
+        }
+      ],
+      "example_url": "/overview?query=ibuprofen&latitude=40.71&longitude=-74.00",
+      "full_url": "https://api.lightningenable.com/l402/proxy/health-suite-d898/overview",
+      "test_free_url": "https://agent-commerce.store/api/health/overview"
+    }
+  ],
+  "generated_at": "2026-03-05T12:00:00Z"
+}

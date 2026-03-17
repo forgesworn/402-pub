@@ -1,0 +1,3673 @@
+[
+  {
+    "id": 339,
+    "name": "Cascade Twitter - User Relationship",
+    "slug": "cascade-twitter-user-relationship",
+    "url": "https://twitter.surf.cascade.fyi/users/relationship",
+    "description": "Check follow relationship between two Twitter/X users. Returns whether source follows target and vice versa.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Cascade",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x6cF3c69eF61b7e257e63D064D721574e28998508",
+    "pricing_usd": "0.001",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T14:40:46.217494"
+  },
+  {
+    "id": 338,
+    "name": "Cascade Twitter - Batch Users",
+    "slug": "cascade-twitter-batch-users",
+    "url": "https://twitter.surf.cascade.fyi/users",
+    "description": "Batch fetch multiple Twitter/X user profiles by username or ID. Returns display name, bio, follower/following counts, verification status, and profile metadata.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Cascade",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x6cF3c69eF61b7e257e63D064D721574e28998508",
+    "pricing_usd": "0.004",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T14:40:25.845562"
+  },
+  {
+    "id": 337,
+    "name": "Cascade Twitter - Batch Tweets",
+    "slug": "cascade-twitter-batch-tweets",
+    "url": "https://twitter.surf.cascade.fyi/tweets",
+    "description": "Batch fetch multiple tweets by ID in a single request. Returns full tweet objects with text, author, metrics, media, and engagement data.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Cascade",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x6cF3c69eF61b7e257e63D064D721574e28998508",
+    "pricing_usd": "0.004",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T14:40:20.115186"
+  },
+  {
+    "id": 336,
+    "name": "Cascade Twitter - Community Search",
+    "slug": "cascade-twitter-community-search",
+    "url": "https://twitter.surf.cascade.fyi/communities/search",
+    "description": "Search Twitter/X community tweets by keyword. Returns tweets from community discussions with author info, metrics, and media.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Cascade",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x6cF3c69eF61b7e257e63D064D721574e28998508",
+    "pricing_usd": "0.004",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 7,
+        "name": "search",
+        "slug": "search",
+        "description": "Web search, indexing, and discovery"
+      }
+    ],
+    "created_at": "2026-03-17T14:40:15.343525"
+  },
+  {
+    "id": 335,
+    "name": "Cascade Twitter - Trends",
+    "slug": "cascade-twitter-trends",
+    "url": "https://twitter.surf.cascade.fyi/trends",
+    "description": "Current trending topics on Twitter/X. Returns trend name, tweet volume, and category. No parameters required.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Cascade",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x6cF3c69eF61b7e257e63D064D721574e28998508",
+    "pricing_usd": "0.001",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T14:33:12.271490"
+  },
+  {
+    "id": 334,
+    "name": "Cascade Twitter - User Search",
+    "slug": "cascade-twitter-user-search",
+    "url": "https://twitter.surf.cascade.fyi/users/search",
+    "description": "Search Twitter/X user profiles by keyword. Returns username, display name, bio, follower/following counts, verification status. Supports pagination.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Cascade",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x6cF3c69eF61b7e257e63D064D721574e28998508",
+    "pricing_usd": "0.004",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 7,
+        "name": "search",
+        "slug": "search",
+        "description": "Web search, indexing, and discovery"
+      }
+    ],
+    "created_at": "2026-03-17T14:32:57.417755"
+  },
+  {
+    "id": 333,
+    "name": "Cascade Twitter - Tweet Search",
+    "slug": "cascade-twitter-tweet-search",
+    "url": "https://twitter.surf.cascade.fyi/tweets/search",
+    "description": "Search Twitter/X tweets with advanced query operators (from:, to:, has:, lang:, etc). Returns tweet text, author, metrics, media. Supports sort by Latest/Top, pagination up to 200 results per request.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Cascade",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x6cF3c69eF61b7e257e63D064D721574e28998508",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 7,
+        "name": "search",
+        "slug": "search",
+        "description": "Web search, indexing, and discovery"
+      }
+    ],
+    "created_at": "2026-03-17T14:32:43.651863"
+  },
+  {
+    "id": 332,
+    "name": "Cascade Web API",
+    "slug": "cascade-web-api",
+    "url": "https://web.surf.cascade.fyi",
+    "description": "Web crawling and search API. Crawl any URL to markdown/HTML/text with CSS selectors and proxy support. Web search powered by Exa. Bulk crawl up to 10 URLs per request. $0.005/crawl, $0.01/search. Dual-network x402 (Solana + Base USDC).",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Cascade",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x6cF3c69eF61b7e257e63D064D721574e28998508",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-17T13:39:20.281233"
+  },
+  {
+    "id": 330,
+    "name": "Cascade Inference",
+    "slug": "cascade-inference",
+    "url": "https://inference.surf.cascade.fyi/v1/chat/completions",
+    "description": "OpenAI-compatible chat completions gateway with 7 models: Kimi K2.5, MiniMax M2.5, Qwen 2.5 7B, Claude Sonnet 4.5/4.6, Claude Opus 4.5/4.6. Dynamic input-aware pricing from $0.001/req for cheap models to $0.40/req for Opus with large prompts. Supports streaming, max_tokens control. Dual-network x402 (Solana + Base USDC).",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Cascade",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x6cF3c69eF61b7e257e63D064D721574e28998508",
+    "pricing_usd": "0.001",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      }
+    ],
+    "created_at": "2026-03-17T13:36:13.669184"
+  },
+  {
+    "id": 329,
+    "name": "www.x402scan.com/api/x402/registry/origin",
+    "slug": "www-x402scan-com-api-x402-registry-origin",
+    "url": "https://www.x402scan.com/api/x402/registry/origin",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "x402scan",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x2EC4545f96A24876764bF2B04D54E66A1351bE71",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 7,
+        "name": "search",
+        "slug": "search",
+        "description": "Web search, indexing, and discovery"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.311231"
+  },
+  {
+    "id": 328,
+    "name": "www.x402scan.com/api/x402/resources/search",
+    "slug": "www-x402scan-com-api-x402-resources-search",
+    "url": "https://www.x402scan.com/api/x402/resources/search",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "x402scan",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x2EC4545f96A24876764bF2B04D54E66A1351bE71",
+    "pricing_usd": "0.02",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 7,
+        "name": "search",
+        "slug": "search",
+        "description": "Web search, indexing, and discovery"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.305163"
+  },
+  {
+    "id": 327,
+    "name": "www.x402scan.com/api/x402/resources",
+    "slug": "www-x402scan-com-api-x402-resources",
+    "url": "https://www.x402scan.com/api/x402/resources",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "x402scan",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x2EC4545f96A24876764bF2B04D54E66A1351bE71",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.298940"
+  },
+  {
+    "id": 326,
+    "name": "www.x402scan.com/api/x402/facilitators/stats",
+    "slug": "www-x402scan-com-api-x402-facilitators-stats",
+    "url": "https://www.x402scan.com/api/x402/facilitators/stats",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "x402scan",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x2EC4545f96A24876764bF2B04D54E66A1351bE71",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.292823"
+  },
+  {
+    "id": 325,
+    "name": "www.x402scan.com/api/x402/facilitators",
+    "slug": "www-x402scan-com-api-x402-facilitators",
+    "url": "https://www.x402scan.com/api/x402/facilitators",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "x402scan",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x2EC4545f96A24876764bF2B04D54E66A1351bE71",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.286916"
+  },
+  {
+    "id": 324,
+    "name": "www.x402scan.com/api/x402/merchants",
+    "slug": "www-x402scan-com-api-x402-merchants",
+    "url": "https://www.x402scan.com/api/x402/merchants",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "x402scan",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x2EC4545f96A24876764bF2B04D54E66A1351bE71",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.277425"
+  },
+  {
+    "id": 323,
+    "name": "x402.twit.sh/tweets",
+    "slug": "x402-twit-sh-tweets",
+    "url": "https://x402.twit.sh/tweets",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.270627"
+  },
+  {
+    "id": 322,
+    "name": "x402.twit.sh/tweets/search",
+    "slug": "x402-twit-sh-tweets-search",
+    "url": "https://x402.twit.sh/tweets/search",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.263422"
+  },
+  {
+    "id": 321,
+    "name": "x402.twit.sh/tweets/user",
+    "slug": "x402-twit-sh-tweets-user",
+    "url": "https://x402.twit.sh/tweets/user",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.257561"
+  },
+  {
+    "id": 320,
+    "name": "x402.twit.sh/tweets/by/id",
+    "slug": "x402-twit-sh-tweets-by-id",
+    "url": "https://x402.twit.sh/tweets/by/id",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.0025",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.251789"
+  },
+  {
+    "id": 319,
+    "name": "x402.twit.sh/articles/by/id",
+    "slug": "x402-twit-sh-articles-by-id",
+    "url": "https://x402.twit.sh/articles/by/id",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.245969"
+  },
+  {
+    "id": 318,
+    "name": "x402.twit.sh/tweets/replies",
+    "slug": "x402-twit-sh-tweets-replies",
+    "url": "https://x402.twit.sh/tweets/replies",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.240072"
+  },
+  {
+    "id": 317,
+    "name": "x402.twit.sh/tweets/retweeted_by",
+    "slug": "x402-twit-sh-tweets-retweeted-by",
+    "url": "https://x402.twit.sh/tweets/retweeted_by",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.234103"
+  },
+  {
+    "id": 316,
+    "name": "x402.twit.sh/communities/members",
+    "slug": "x402-twit-sh-communities-members",
+    "url": "https://x402.twit.sh/communities/members",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.228271"
+  },
+  {
+    "id": 315,
+    "name": "x402.twit.sh/communities/by/id",
+    "slug": "x402-twit-sh-communities-by-id",
+    "url": "https://x402.twit.sh/communities/by/id",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.0025",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.221372"
+  },
+  {
+    "id": 314,
+    "name": "x402.twit.sh/lists/tweets",
+    "slug": "x402-twit-sh-lists-tweets",
+    "url": "https://x402.twit.sh/lists/tweets",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.215420"
+  },
+  {
+    "id": 313,
+    "name": "x402.twit.sh/lists/followers",
+    "slug": "x402-twit-sh-lists-followers",
+    "url": "https://x402.twit.sh/lists/followers",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.209652"
+  },
+  {
+    "id": 312,
+    "name": "x402.twit.sh/lists/by/id",
+    "slug": "x402-twit-sh-lists-by-id",
+    "url": "https://x402.twit.sh/lists/by/id",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.0025",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.203610"
+  },
+  {
+    "id": 311,
+    "name": "x402.twit.sh/lists/members",
+    "slug": "x402-twit-sh-lists-members",
+    "url": "https://x402.twit.sh/lists/members",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.196524"
+  },
+  {
+    "id": 310,
+    "name": "x402.twit.sh/communities/posts",
+    "slug": "x402-twit-sh-communities-posts",
+    "url": "https://x402.twit.sh/communities/posts",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.190720"
+  },
+  {
+    "id": 309,
+    "name": "x402.twit.sh/tweets/quote_tweets",
+    "slug": "x402-twit-sh-tweets-quote-tweets",
+    "url": "https://x402.twit.sh/tweets/quote_tweets",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.181879"
+  },
+  {
+    "id": 308,
+    "name": "x402.twit.sh/users",
+    "slug": "x402-twit-sh-users",
+    "url": "https://x402.twit.sh/users",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.175743"
+  },
+  {
+    "id": 307,
+    "name": "x402.twit.sh/users/following",
+    "slug": "x402-twit-sh-users-following",
+    "url": "https://x402.twit.sh/users/following",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.169336"
+  },
+  {
+    "id": 306,
+    "name": "x402.twit.sh/users/followers",
+    "slug": "x402-twit-sh-users-followers",
+    "url": "https://x402.twit.sh/users/followers",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.163156"
+  },
+  {
+    "id": 305,
+    "name": "x402.twit.sh/users/search",
+    "slug": "x402-twit-sh-users-search",
+    "url": "https://x402.twit.sh/users/search",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.157457"
+  },
+  {
+    "id": 304,
+    "name": "x402.twit.sh/users/by/id",
+    "slug": "x402-twit-sh-users-by-id",
+    "url": "https://x402.twit.sh/users/by/id",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.149337"
+  },
+  {
+    "id": 303,
+    "name": "x402.twit.sh/users/by/username",
+    "slug": "x402-twit-sh-users-by-username",
+    "url": "https://x402.twit.sh/users/by/username",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "twit.sh",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x9dBA414637c611a16BEa6f0796BFcbcBdc410df8",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.142172"
+  },
+  {
+    "id": 302,
+    "name": "api.moltalyzer.xyz/api/polymarket/signals",
+    "slug": "api-moltalyzer-xyz-api-polymarket-signals",
+    "url": "https://api.moltalyzer.xyz/api/polymarket/signals",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Moltalyzer",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xf444abc53f5e1e73caec7df64d147ddb119514a0",
+    "pricing_usd": "0.03",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-17T02:31:51.132379"
+  },
+  {
+    "id": 301,
+    "name": "Satring Service Health Analytics",
+    "slug": "satring-service-health-analytics",
+    "url": "https://satring.com/docs#/API/service_analytics_api_v1_services__slug__analytics_get",
+    "description": "Per-service health report: uptime percentage, avg latency, probe history. Paywalled (50 sats / $0.025 USDC). Supports L402 and x402.",
+    "pricing_sats": 50,
+    "pricing_model": "per-request",
+    "protocol": "L402+x402",
+    "owner_name": "satring",
+    "logo_url": "https://satring.com/static/img/satring-logo-trans-bg.png",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x2985E0Bf522596254b2932F8E95fdE69F90C14f2",
+    "pricing_usd": null,
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 7,
+        "name": "search",
+        "slug": "search",
+        "description": "Web search, indexing, and discovery"
+      }
+    ],
+    "created_at": "2026-03-15T06:34:12.631075Z"
+  },
+  {
+    "id": 300,
+    "name": "api.moltalyzer.xyz/api/tokens/signal",
+    "slug": "api-moltalyzer-xyz-api-tokens-signal",
+    "url": "https://api.moltalyzer.xyz/api/tokens/signal",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Moltalyzer",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xf444abc53f5e1e73caec7df64d147ddb119514a0",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-15T06:31:51.612790"
+  },
+  {
+    "id": 299,
+    "name": "api.moltalyzer.xyz/api/tokens/history",
+    "slug": "api-moltalyzer-xyz-api-tokens-history",
+    "url": "https://api.moltalyzer.xyz/api/tokens/history",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Moltalyzer",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xf444abc53f5e1e73caec7df64d147ddb119514a0",
+    "pricing_usd": "0.03",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-15T03:34:37.969584"
+  },
+  {
+    "id": 298,
+    "name": "api.moltalyzer.xyz/api/tokens/signals",
+    "slug": "api-moltalyzer-xyz-api-tokens-signals",
+    "url": "https://api.moltalyzer.xyz/api/tokens/signals",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Moltalyzer",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xf444abc53f5e1e73caec7df64d147ddb119514a0",
+    "pricing_usd": "0.05",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-15T03:34:37.965600"
+  },
+  {
+    "id": 297,
+    "name": "api.moltalyzer.xyz/api/github/digests",
+    "slug": "api-moltalyzer-xyz-api-github-digests",
+    "url": "https://api.moltalyzer.xyz/api/github/digests",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Moltalyzer",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xf444abc53f5e1e73caec7df64d147ddb119514a0",
+    "pricing_usd": "0.05",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-15T03:34:37.961416"
+  },
+  {
+    "id": 296,
+    "name": "governance.taskhawktech.com/shield/scan",
+    "slug": "governance-taskhawktech-com-shield-scan",
+    "url": "https://governance.taskhawktech.com/shield/scan",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Kevros",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xF41E260D0896093F7d0a789030043925F7B8E478",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 4,
+        "name": "identity",
+        "slug": "identity",
+        "description": "KYC, authentication, and verification"
+      }
+    ],
+    "created_at": "2026-03-15T03:34:37.956654"
+  },
+  {
+    "id": 295,
+    "name": "x402.asterpay.io/v2/x402/ai/sentiment",
+    "slug": "x402-asterpay-io-v2-x402-ai-sentiment",
+    "url": "https://x402.asterpay.io/v2/x402/ai/sentiment",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "AsterPay",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xF9035b2643EFa7266805219719971fFC7aC88170",
+    "pricing_usd": "0.001",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      }
+    ],
+    "created_at": "2026-03-15T03:34:37.952034"
+  },
+  {
+    "id": 294,
+    "name": "x402.asterpay.io/v2/x402/crypto/prices",
+    "slug": "x402-asterpay-io-v2-x402-crypto-prices",
+    "url": "https://x402.asterpay.io/v2/x402/crypto/prices",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "AsterPay",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xF9035b2643EFa7266805219719971fFC7aC88170",
+    "pricing_usd": "0.001",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-15T03:34:37.947305"
+  },
+  {
+    "id": 293,
+    "name": "x402.asterpay.io/v2/x402/market/rates",
+    "slug": "x402-asterpay-io-v2-x402-market-rates",
+    "url": "https://x402.asterpay.io/v2/x402/market/rates",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "AsterPay",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xF9035b2643EFa7266805219719971fFC7aC88170",
+    "pricing_usd": "0.001",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-15T03:34:37.942306"
+  },
+  {
+    "id": 292,
+    "name": "x402.asterpay.io/v1/agent/discovery",
+    "slug": "x402-asterpay-io-v1-agent-discovery",
+    "url": "https://x402.asterpay.io/v1/agent/discovery",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "AsterPay",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xF9035b2643EFa7266805219719971fFC7aC88170",
+    "pricing_usd": "0.001",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 7,
+        "name": "search",
+        "slug": "search",
+        "description": "Web search, indexing, and discovery"
+      }
+    ],
+    "created_at": "2026-03-15T03:34:37.933915"
+  },
+  {
+    "id": 291,
+    "name": "x402engine.app/api/crypto/price",
+    "slug": "x402engine-app-api-crypto-price",
+    "url": "https://x402engine.app/api/crypto/price",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "x402engine",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x7dd5Be069f2d2eAd75eC7C3423B116fF043c2629",
+    "pricing_usd": "0.001",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 5,
+        "name": "media",
+        "slug": "media",
+        "description": "Image, video, and audio processing"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.683480"
+  },
+  {
+    "id": 290,
+    "name": "x402-gateway-production.up.railway.app/api/crypto/price",
+    "slug": "x402-gateway-production-up-railway-app-api-crypto-price",
+    "url": "https://x402-gateway-production.up.railway.app/api/crypto/price",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "x402engine",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x7dd5Be069f2d2eAd75eC7C3423B116fF043c2629",
+    "pricing_usd": "0.001",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 5,
+        "name": "media",
+        "slug": "media",
+        "description": "Image, video, and audio processing"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.679214"
+  },
+  {
+    "id": 289,
+    "name": "rng.sociologic.ai/uuid",
+    "slug": "rng-sociologic-ai-uuid",
+    "url": "https://rng.sociologic.ai/uuid",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "SocioLogic",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x0b6E3594Df4Faa6D66196D5a3271796AD8Bb505d",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 4,
+        "name": "identity",
+        "slug": "identity",
+        "description": "KYC, authentication, and verification"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.674623"
+  },
+  {
+    "id": 288,
+    "name": "rng.sociologic.ai/random",
+    "slug": "rng-sociologic-ai-random",
+    "url": "https://rng.sociologic.ai/random",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "SocioLogic",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x0b6E3594Df4Faa6D66196D5a3271796AD8Bb505d",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 4,
+        "name": "identity",
+        "slug": "identity",
+        "description": "KYC, authentication, and verification"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.670327"
+  },
+  {
+    "id": 287,
+    "name": "x402.robtex.com/api/v1/bitcoin_blockchain_stats",
+    "slug": "x402-robtex-com-api-v1-bitcoin-blockchain-stats",
+    "url": "https://x402.robtex.com/api/v1/bitcoin_blockchain_stats",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.665470"
+  },
+  {
+    "id": 286,
+    "name": "x402.robtex.com/api/v1/bitcoin_transaction_spends",
+    "slug": "x402-robtex-com-api-v1-bitcoin-transaction-spends",
+    "url": "https://x402.robtex.com/api/v1/bitcoin_transaction_spends",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.661091"
+  },
+  {
+    "id": 285,
+    "name": "x402.robtex.com/api/v1/bitcoin_address_transactions",
+    "slug": "x402-robtex-com-api-v1-bitcoin-address-transactions",
+    "url": "https://x402.robtex.com/api/v1/bitcoin_address_transactions",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.656131"
+  },
+  {
+    "id": 284,
+    "name": "x402.robtex.com/api/v1/lookup_bitcoin_block",
+    "slug": "x402-robtex-com-api-v1-lookup-bitcoin-block",
+    "url": "https://x402.robtex.com/api/v1/lookup_bitcoin_block",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.651530"
+  },
+  {
+    "id": 283,
+    "name": "x402.robtex.com/api/v1/lookup_bitcoin_address",
+    "slug": "x402-robtex-com-api-v1-lookup-bitcoin-address",
+    "url": "https://x402.robtex.com/api/v1/lookup_bitcoin_address",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.647261"
+  },
+  {
+    "id": 282,
+    "name": "x402.robtex.com/api/v1/lookup_bitcoin_transaction",
+    "slug": "x402-robtex-com-api-v1-lookup-bitcoin-transaction",
+    "url": "https://x402.robtex.com/api/v1/lookup_bitcoin_transaction",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.641979"
+  },
+  {
+    "id": 281,
+    "name": "x402.robtex.com/api/v1/ping",
+    "slug": "x402-robtex-com-api-v1-ping",
+    "url": "https://x402.robtex.com/api/v1/ping",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.628682"
+  },
+  {
+    "id": 280,
+    "name": "x402.robtex.com/api/v1/check_email",
+    "slug": "x402-robtex-com-api-v1-check-email",
+    "url": "https://x402.robtex.com/api/v1/check_email",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [],
+    "created_at": "2026-03-14T13:28:49.612581"
+  },
+  {
+    "id": 279,
+    "name": "x402.robtex.com/api/v1/domain_shared_mx",
+    "slug": "x402-robtex-com-api-v1-domain-shared-mx",
+    "url": "https://x402.robtex.com/api/v1/domain_shared_mx",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.604258"
+  },
+  {
+    "id": 278,
+    "name": "x402.robtex.com/api/v1/domain_shared_ns",
+    "slug": "x402-robtex-com-api-v1-domain-shared-ns",
+    "url": "https://x402.robtex.com/api/v1/domain_shared_ns",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.599475"
+  },
+  {
+    "id": 277,
+    "name": "x402.robtex.com/api/v1/domain_shared_ip",
+    "slug": "x402-robtex-com-api-v1-domain-shared-ip",
+    "url": "https://x402.robtex.com/api/v1/domain_shared_ip",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.594453"
+  },
+  {
+    "id": 276,
+    "name": "x402.robtex.com/api/v1/domain_blocklist_check",
+    "slug": "x402-robtex-com-api-v1-domain-blocklist-check",
+    "url": "https://x402.robtex.com/api/v1/domain_blocklist_check",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.589466"
+  },
+  {
+    "id": 275,
+    "name": "x402.robtex.com/api/v1/domain_ranking",
+    "slug": "x402-robtex-com-api-v1-domain-ranking",
+    "url": "https://x402.robtex.com/api/v1/domain_ranking",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.584164"
+  },
+  {
+    "id": 274,
+    "name": "x402.robtex.com/api/v1/domain_reputation",
+    "slug": "x402-robtex-com-api-v1-domain-reputation",
+    "url": "https://x402.robtex.com/api/v1/domain_reputation",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.579843"
+  },
+  {
+    "id": 273,
+    "name": "x402.robtex.com/api/v1/as_prefixes",
+    "slug": "x402-robtex-com-api-v1-as-prefixes",
+    "url": "https://x402.robtex.com/api/v1/as_prefixes",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.575191"
+  },
+  {
+    "id": 272,
+    "name": "x402.robtex.com/api/v1/as_info",
+    "slug": "x402-robtex-com-api-v1-as-info",
+    "url": "https://x402.robtex.com/api/v1/as_info",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.570830"
+  },
+  {
+    "id": 271,
+    "name": "x402.robtex.com/api/v1/ip_threat_intel",
+    "slug": "x402-robtex-com-api-v1-ip-threat-intel",
+    "url": "https://x402.robtex.com/api/v1/ip_threat_intel",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.565460"
+  },
+  {
+    "id": 270,
+    "name": "x402.robtex.com/api/v1/ip_blocklist_check",
+    "slug": "x402-robtex-com-api-v1-ip-blocklist-check",
+    "url": "https://x402.robtex.com/api/v1/ip_blocklist_check",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.560521"
+  },
+  {
+    "id": 269,
+    "name": "x402.robtex.com/api/v1/ip_to_asn",
+    "slug": "x402-robtex-com-api-v1-ip-to-asn",
+    "url": "https://x402.robtex.com/api/v1/ip_to_asn",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.555792"
+  },
+  {
+    "id": 268,
+    "name": "x402.robtex.com/api/v1/ip_network",
+    "slug": "x402-robtex-com-api-v1-ip-network",
+    "url": "https://x402.robtex.com/api/v1/ip_network",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.551290"
+  },
+  {
+    "id": 267,
+    "name": "x402.robtex.com/api/v1/ip_geolocation",
+    "slug": "x402-robtex-com-api-v1-ip-geolocation",
+    "url": "https://x402.robtex.com/api/v1/ip_geolocation",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.546231"
+  },
+  {
+    "id": 266,
+    "name": "x402.robtex.com/api/v1/historic_reverse_lookup_cname",
+    "slug": "x402-robtex-com-api-v1-historic-reverse-lookup-cname",
+    "url": "https://x402.robtex.com/api/v1/historic_reverse_lookup_cname",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.541254"
+  },
+  {
+    "id": 265,
+    "name": "x402.robtex.com/api/v1/reverse_lookup_cname",
+    "slug": "x402-robtex-com-api-v1-reverse-lookup-cname",
+    "url": "https://x402.robtex.com/api/v1/reverse_lookup_cname",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.536425"
+  },
+  {
+    "id": 264,
+    "name": "x402.robtex.com/api/v1/dns_ptr",
+    "slug": "x402-robtex-com-api-v1-dns-ptr",
+    "url": "https://x402.robtex.com/api/v1/dns_ptr",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.529078"
+  },
+  {
+    "id": 263,
+    "name": "x402.robtex.com/api/v1/dns_soa",
+    "slug": "x402-robtex-com-api-v1-dns-soa",
+    "url": "https://x402.robtex.com/api/v1/dns_soa",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.522421"
+  },
+  {
+    "id": 262,
+    "name": "x402.robtex.com/api/v1/dns_cname",
+    "slug": "x402-robtex-com-api-v1-dns-cname",
+    "url": "https://x402.robtex.com/api/v1/dns_cname",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.513899"
+  },
+  {
+    "id": 261,
+    "name": "x402.robtex.com/api/v1/dns_txt",
+    "slug": "x402-robtex-com-api-v1-dns-txt",
+    "url": "https://x402.robtex.com/api/v1/dns_txt",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.509818"
+  },
+  {
+    "id": 260,
+    "name": "x402.robtex.com/api/v1/dns_ns",
+    "slug": "x402-robtex-com-api-v1-dns-ns",
+    "url": "https://x402.robtex.com/api/v1/dns_ns",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.504904"
+  },
+  {
+    "id": 259,
+    "name": "x402.robtex.com/api/v1/dns_mx",
+    "slug": "x402-robtex-com-api-v1-dns-mx",
+    "url": "https://x402.robtex.com/api/v1/dns_mx",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.494740"
+  },
+  {
+    "id": 258,
+    "name": "x402.robtex.com/api/v1/dns_aaaa",
+    "slug": "x402-robtex-com-api-v1-dns-aaaa",
+    "url": "https://x402.robtex.com/api/v1/dns_aaaa",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.489080"
+  },
+  {
+    "id": 257,
+    "name": "x402.robtex.com/api/v1/dns_a",
+    "slug": "x402-robtex-com-api-v1-dns-a",
+    "url": "https://x402.robtex.com/api/v1/dns_a",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.479960"
+  },
+  {
+    "id": 256,
+    "name": "x402.robtex.com/api/v1/tld_info",
+    "slug": "x402-robtex-com-api-v1-tld-info",
+    "url": "https://x402.robtex.com/api/v1/tld_info",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.475314"
+  },
+  {
+    "id": 255,
+    "name": "x402.robtex.com/api/v1/registered_domain",
+    "slug": "x402-robtex-com-api-v1-registered-domain",
+    "url": "https://x402.robtex.com/api/v1/registered_domain",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.467494"
+  },
+  {
+    "id": 254,
+    "name": "x402.robtex.com/api/v1/is_subdomain",
+    "slug": "x402-robtex-com-api-v1-is-subdomain",
+    "url": "https://x402.robtex.com/api/v1/is_subdomain",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.461767"
+  },
+  {
+    "id": 253,
+    "name": "x402.robtex.com/api/v1/parse_hostname",
+    "slug": "x402-robtex-com-api-v1-parse-hostname",
+    "url": "https://x402.robtex.com/api/v1/parse_hostname",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.455337"
+  },
+  {
+    "id": 252,
+    "name": "x402.robtex.com/api/v1/pdns_reverse_historic",
+    "slug": "x402-robtex-com-api-v1-pdns-reverse-historic",
+    "url": "https://x402.robtex.com/api/v1/pdns_reverse_historic",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.446671"
+  },
+  {
+    "id": 251,
+    "name": "x402.robtex.com/api/v1/pdns_reverse",
+    "slug": "x402-robtex-com-api-v1-pdns-reverse",
+    "url": "https://x402.robtex.com/api/v1/pdns_reverse",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.442184"
+  },
+  {
+    "id": 250,
+    "name": "x402.robtex.com/api/v1/pdns_forward",
+    "slug": "x402-robtex-com-api-v1-pdns-forward",
+    "url": "https://x402.robtex.com/api/v1/pdns_forward",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.436826"
+  },
+  {
+    "id": 249,
+    "name": "x402.robtex.com/api/v1/asquery",
+    "slug": "x402-robtex-com-api-v1-asquery",
+    "url": "https://x402.robtex.com/api/v1/asquery",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.429603"
+  },
+  {
+    "id": 248,
+    "name": "x402.robtex.com/api/v1/ipquery",
+    "slug": "x402-robtex-com-api-v1-ipquery",
+    "url": "https://x402.robtex.com/api/v1/ipquery",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.424462"
+  },
+  {
+    "id": 247,
+    "name": "x402.robtex.com/api/v1/search_lightning_nodes_by_alias",
+    "slug": "x402-robtex-com-api-v1-search-lightning-nodes-by-alias",
+    "url": "https://x402.robtex.com/api/v1/search_lightning_nodes_by_alias",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 7,
+        "name": "search",
+        "slug": "search",
+        "description": "Web search, indexing, and discovery"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.415264"
+  },
+  {
+    "id": 246,
+    "name": "x402.robtex.com/api/v1/get_recommended_lightning_peers",
+    "slug": "x402-robtex-com-api-v1-get-recommended-lightning-peers",
+    "url": "https://x402.robtex.com/api/v1/get_recommended_lightning_peers",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.409322"
+  },
+  {
+    "id": 245,
+    "name": "x402.robtex.com/api/v1/lookup_lightning_channels_per_node",
+    "slug": "x402-robtex-com-api-v1-lookup-lightning-channels-per-node",
+    "url": "https://x402.robtex.com/api/v1/lookup_lightning_channels_per_node",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.396925"
+  },
+  {
+    "id": 244,
+    "name": "x402.robtex.com/api/v1/lookup_lightning_channel",
+    "slug": "x402-robtex-com-api-v1-lookup-lightning-channel",
+    "url": "https://x402.robtex.com/api/v1/lookup_lightning_channel",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.378263"
+  },
+  {
+    "id": 243,
+    "name": "x402.robtex.com/api/v1/lookup_lightning_node",
+    "slug": "x402-robtex-com-api-v1-lookup-lightning-node",
+    "url": "https://x402.robtex.com/api/v1/lookup_lightning_node",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.360240"
+  },
+  {
+    "id": 242,
+    "name": "x402.robtex.com/api/v1/lookup_as_whois",
+    "slug": "x402-robtex-com-api-v1-lookup-as-whois",
+    "url": "https://x402.robtex.com/api/v1/lookup_as_whois",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.350762"
+  },
+  {
+    "id": 241,
+    "name": "x402.robtex.com/api/v1/lookup_mac",
+    "slug": "x402-robtex-com-api-v1-lookup-mac",
+    "url": "https://x402.robtex.com/api/v1/lookup_mac",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.342662"
+  },
+  {
+    "id": 240,
+    "name": "x402.robtex.com/api/v1/historic_reverse_lookup_ip",
+    "slug": "x402-robtex-com-api-v1-historic-reverse-lookup-ip",
+    "url": "https://x402.robtex.com/api/v1/historic_reverse_lookup_ip",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.336690"
+  },
+  {
+    "id": 239,
+    "name": "x402.robtex.com/api/v1/historic_reverse_lookup_mx",
+    "slug": "x402-robtex-com-api-v1-historic-reverse-lookup-mx",
+    "url": "https://x402.robtex.com/api/v1/historic_reverse_lookup_mx",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.329781"
+  },
+  {
+    "id": 238,
+    "name": "x402.robtex.com/api/v1/historic_reverse_lookup_ns",
+    "slug": "x402-robtex-com-api-v1-historic-reverse-lookup-ns",
+    "url": "https://x402.robtex.com/api/v1/historic_reverse_lookup_ns",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.323172"
+  },
+  {
+    "id": 237,
+    "name": "x402.robtex.com/api/v1/reverse_lookup_ip",
+    "slug": "x402-robtex-com-api-v1-reverse-lookup-ip",
+    "url": "https://x402.robtex.com/api/v1/reverse_lookup_ip",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.315712"
+  },
+  {
+    "id": 236,
+    "name": "x402.robtex.com/api/v1/reverse_lookup_ns",
+    "slug": "x402-robtex-com-api-v1-reverse-lookup-ns",
+    "url": "https://x402.robtex.com/api/v1/reverse_lookup_ns",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.308141"
+  },
+  {
+    "id": 235,
+    "name": "x402.robtex.com/api/v1/reverse_lookup_mx",
+    "slug": "x402-robtex-com-api-v1-reverse-lookup-mx",
+    "url": "https://x402.robtex.com/api/v1/reverse_lookup_mx",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.299605"
+  },
+  {
+    "id": 234,
+    "name": "x402.robtex.com/api/v1/reverse_lookup_dns_records",
+    "slug": "x402-robtex-com-api-v1-reverse-lookup-dns-records",
+    "url": "https://x402.robtex.com/api/v1/reverse_lookup_dns_records",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.292163"
+  },
+  {
+    "id": 233,
+    "name": "x402.robtex.com/api/v1/lookup_dns",
+    "slug": "x402-robtex-com-api-v1-lookup-dns",
+    "url": "https://x402.robtex.com/api/v1/lookup_dns",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.284741"
+  },
+  {
+    "id": 232,
+    "name": "x402.robtex.com/api/v1/ip_reputation",
+    "slug": "x402-robtex-com-api-v1-ip-reputation",
+    "url": "https://x402.robtex.com/api/v1/ip_reputation",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.275542"
+  },
+  {
+    "id": 231,
+    "name": "x402.robtex.com/api/v1/latest_lightning_channels",
+    "slug": "x402-robtex-com-api-v1-latest-lightning-channels",
+    "url": "https://x402.robtex.com/api/v1/latest_lightning_channels",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Robtex",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0x5D62c6970A411d881fAe99404beb7CDA11986f5e",
+    "pricing_usd": "0.005",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 9,
+        "name": "tools",
+        "slug": "tools",
+        "description": "Developer tools, utilities, and infrastructure"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.267550"
+  },
+  {
+    "id": 230,
+    "name": "Mycelia Signal XAU/EUR spot Oracle",
+    "slug": "mycelia-signal-xau-eur-spot-oracle",
+    "url": "https://api.myceliasignal.com/oracle/price/xau/eur",
+    "description": "Mycelia Signal sovereign oracle: XAU/EUR spot",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Mycelia Signal",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xD593832Ce9C2B13B192ba50B55dd9AF44e96700d",
+    "pricing_usd": null,
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.259889"
+  },
+  {
+    "id": 229,
+    "name": "Mycelia Signal SOL/EUR spot Oracle",
+    "slug": "mycelia-signal-sol-eur-spot-oracle",
+    "url": "https://api.myceliasignal.com/oracle/price/sol/eur",
+    "description": "Mycelia Signal sovereign oracle: SOL/EUR spot",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Mycelia Signal",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xD593832Ce9C2B13B192ba50B55dd9AF44e96700d",
+    "pricing_usd": null,
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.254487"
+  },
+  {
+    "id": 228,
+    "name": "Mycelia Signal ETH/EUR spot Oracle",
+    "slug": "mycelia-signal-eth-eur-spot-oracle",
+    "url": "https://api.myceliasignal.com/oracle/price/eth/eur",
+    "description": "Mycelia Signal sovereign oracle: ETH/EUR spot",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Mycelia Signal",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xD593832Ce9C2B13B192ba50B55dd9AF44e96700d",
+    "pricing_usd": null,
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.249450"
+  },
+  {
+    "id": 227,
+    "name": "Mycelia Signal BTC/EUR VWAP Oracle",
+    "slug": "mycelia-signal-btc-eur-vwap-oracle",
+    "url": "https://api.myceliasignal.com/oracle/price/btc/eur/vwap",
+    "description": "Mycelia Signal sovereign oracle: BTC/EUR VWAP",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Mycelia Signal",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xD593832Ce9C2B13B192ba50B55dd9AF44e96700d",
+    "pricing_usd": null,
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.243748"
+  },
+  {
+    "id": 226,
+    "name": "Mycelia Signal BTC/EUR spot Oracle",
+    "slug": "mycelia-signal-btc-eur-spot-oracle",
+    "url": "https://api.myceliasignal.com/oracle/price/btc/eur",
+    "description": "Mycelia Signal sovereign oracle: BTC/EUR spot",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Mycelia Signal",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xD593832Ce9C2B13B192ba50B55dd9AF44e96700d",
+    "pricing_usd": null,
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.238572"
+  },
+  {
+    "id": 225,
+    "name": "Mycelia Signal SOL/USD spot Oracle",
+    "slug": "mycelia-signal-sol-usd-spot-oracle",
+    "url": "https://api.myceliasignal.com/oracle/price/sol/usd",
+    "description": "Mycelia Signal sovereign oracle: SOL/USD spot",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Mycelia Signal",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xD593832Ce9C2B13B192ba50B55dd9AF44e96700d",
+    "pricing_usd": null,
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.233205"
+  },
+  {
+    "id": 224,
+    "name": "Mycelia Signal XAU/USD spot Oracle",
+    "slug": "mycelia-signal-xau-usd-spot-oracle",
+    "url": "https://api.myceliasignal.com/oracle/price/xau/usd",
+    "description": "Mycelia Signal sovereign oracle: XAU/USD spot",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Mycelia Signal",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xD593832Ce9C2B13B192ba50B55dd9AF44e96700d",
+    "pricing_usd": null,
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.227949"
+  },
+  {
+    "id": 223,
+    "name": "Mycelia Signal EUR/USD spot Oracle",
+    "slug": "mycelia-signal-eur-usd-spot-oracle",
+    "url": "https://api.myceliasignal.com/oracle/price/eur/usd",
+    "description": "Mycelia Signal sovereign oracle: EUR/USD spot",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Mycelia Signal",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xD593832Ce9C2B13B192ba50B55dd9AF44e96700d",
+    "pricing_usd": null,
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.222549"
+  },
+  {
+    "id": 222,
+    "name": "Mycelia Signal ETH/USD spot Oracle",
+    "slug": "mycelia-signal-eth-usd-spot-oracle",
+    "url": "https://api.myceliasignal.com/oracle/price/eth/usd",
+    "description": "Mycelia Signal sovereign oracle: ETH/USD spot",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Mycelia Signal",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xD593832Ce9C2B13B192ba50B55dd9AF44e96700d",
+    "pricing_usd": null,
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.217109"
+  },
+  {
+    "id": 221,
+    "name": "Mycelia Signal BTC/USD VWAP Oracle",
+    "slug": "mycelia-signal-btc-usd-vwap-oracle",
+    "url": "https://api.myceliasignal.com/oracle/price/btc/usd/vwap",
+    "description": "Mycelia Signal sovereign oracle: BTC/USD VWAP",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Mycelia Signal",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xD593832Ce9C2B13B192ba50B55dd9AF44e96700d",
+    "pricing_usd": null,
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.211771"
+  },
+  {
+    "id": 220,
+    "name": "Mycelia Signal BTC/USD spot Oracle",
+    "slug": "mycelia-signal-btc-usd-spot-oracle",
+    "url": "https://api.myceliasignal.com/oracle/price/btc/usd",
+    "description": "Mycelia Signal sovereign oracle: BTC/USD spot",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Mycelia Signal",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xD593832Ce9C2B13B192ba50B55dd9AF44e96700d",
+    "pricing_usd": null,
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": true,
+    "categories": [
+      {
+        "id": 2,
+        "name": "data",
+        "slug": "data",
+        "description": "Data feeds, aggregation, and analytics"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.206961"
+  },
+  {
+    "id": 219,
+    "name": "api.moltalyzer.xyz/api/polymarket/signal",
+    "slug": "api-moltalyzer-xyz-api-polymarket-signal",
+    "url": "https://api.moltalyzer.xyz/api/polymarket/signal",
+    "description": "Added by scraper. Domain owners can authenticate for free to edit information.",
+    "pricing_sats": 0,
+    "pricing_model": "per-request",
+    "protocol": "x402",
+    "owner_name": "Moltalyzer",
+    "logo_url": "",
+    "x402_network": "eip155:8453",
+    "x402_asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "x402_pay_to": "0xf444abc53f5e1e73caec7df64d147ddb119514a0",
+    "pricing_usd": "0.01",
+    "avg_rating": 0,
+    "rating_count": 0,
+    "domain_verified": false,
+    "categories": [
+      {
+        "id": 1,
+        "name": "ai/ml",
+        "slug": "ai-ml",
+        "description": "Machine learning and AI inference APIs"
+      },
+      {
+        "id": 3,
+        "name": "finance",
+        "slug": "finance",
+        "description": "Financial data, trading, and payment APIs"
+      }
+    ],
+    "created_at": "2026-03-14T13:28:49.202236"
+  }
+]
