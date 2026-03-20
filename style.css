@@ -660,14 +660,18 @@ main {
 }
 
 .filter-pills {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   gap: 0.4rem;
 }
 
-/* Filter toggle — hidden on desktop, shown on mobile */
+.filter-pills.show-mobile {
+  display: flex;
+}
+
+/* Filter toggle — visible on all screen sizes */
 .filter-toggle {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.35rem 0.75rem;
@@ -693,13 +697,13 @@ main {
   border-color: var(--accent-amber-dim);
 }
 
-/* Outlined filter pills — chunky, tappable */
+/* Outlined filter pills — compact, tappable */
 .pill {
   display: inline-flex;
   align-items: center;
-  padding: 0.55rem 1.15rem;
+  padding: 0.35rem 0.85rem;
   border-radius: 999px;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-family: var(--font-body);
   cursor: pointer;
   border: 1px solid var(--border-medium);
@@ -1496,13 +1500,18 @@ footer a:hover {
    ============================================================ */
 
 .filter-row {
-  display: flex;
+  display: none;
   gap: 0.75rem;
   flex-wrap: wrap;
   align-items: center;
 }
 
+.filter-row.show-mobile {
+  display: flex;
+}
+
 .filter-row .filter-pills {
+  display: flex;
   gap: 0.35rem;
 }
 
@@ -1807,40 +1816,16 @@ footer a:hover {
     font-size: 0.9rem;
   }
 
-  /* Hide filter pills by default on mobile — toggle reveals them */
   .toolbar-filters {
     gap: 0.3rem;
   }
 
   .filter-pills {
-    display: none;
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding-bottom: 2px;
-  }
-
-  .filter-pills.show-mobile {
-    display: flex;
-  }
-
-  .filter-row {
-    display: none;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-
-  .filter-row.show-mobile {
-    display: flex;
-  }
-
-  .filter-row .filter-pills {
-    display: flex;
-  }
-
-  .filter-row .filter-pills.show-mobile {
-    display: flex;
   }
 
   .filter-pills::-webkit-scrollbar {
@@ -1852,11 +1837,6 @@ footer a:hover {
     font-size: 0.75rem;
     flex-shrink: 0;
     white-space: nowrap;
-  }
-
-  /* Filter toggle button — only visible on mobile */
-  .filter-toggle {
-    display: flex !important;
   }
 
   .relay-status {
