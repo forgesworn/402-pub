@@ -36,7 +36,7 @@ const RECONNECT_MAX = 30_000
 const MAX_SERVICES = 2000
 
 /** Number of service cards to render per page */
-const PAGE_SIZE = 50
+const PAGE_SIZE = 15
 
 /** Maximum topic pills visible before collapsing behind "+N more" */
 const MAX_VISIBLE_TOPICS = 8
