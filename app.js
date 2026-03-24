@@ -997,6 +997,7 @@ function renderFilterPills(allServices) {
       { value: 'all', label: 'All Rails' },
       { value: 'l402', label: 'L402' },
       { value: 'x402', label: 'x402' },
+      { value: 'payment', label: 'IETF 402' },
       { value: 'cashu', label: 'Cashu' },
     ],
     activeRailFilter,
@@ -2163,6 +2164,7 @@ function updateHeroStats() {
   // Payment rails breakdown (pmi values are already normalised at parse time)
   const l402Count = allServices.filter(s => s.paymentMethods.includes('l402')).length
   const x402Count = allServices.filter(s => s.paymentMethods.includes('x402')).length
+  const ietfCount = allServices.filter(s => s.paymentMethods.includes('payment')).length
   const cashuCount = allServices.filter(s => s.paymentMethods.includes('cashu') || s.paymentMethods.includes('xcashu')).length
 
   const l402CountEl = document.getElementById('hero-l402-count')
@@ -2170,6 +2172,9 @@ function updateHeroStats() {
 
   const x402CountEl = document.getElementById('hero-x402-count')
   if (x402CountEl) x402CountEl.textContent = x402Count
+
+  const ietfCountEl = document.getElementById('hero-ietf-count')
+  if (ietfCountEl) ietfCountEl.textContent = ietfCount
 
   const cashuCountEl = document.getElementById('hero-cashu-count')
   if (cashuCountEl) cashuCountEl.textContent = cashuCount
@@ -2192,6 +2197,7 @@ function updateHeroStats() {
   const railStatMap = {
     'hero-stat-l402': 'l402',
     'hero-stat-x402': 'x402',
+    'hero-stat-ietf': 'payment',
     'hero-stat-cashu': 'cashu',
   }
   Object.entries(railStatMap).forEach(([id, rail]) => {
@@ -2221,6 +2227,7 @@ function updateHeroStats() {
   const railStatMap = {
     'hero-stat-l402': 'l402',
     'hero-stat-x402': 'x402',
+    'hero-stat-ietf': 'payment',
     'hero-stat-cashu': 'cashu',
   }
 
