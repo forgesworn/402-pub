@@ -587,7 +587,7 @@ function renderServices() {
   grid.textContent = ''
   grid.appendChild(fragment)
 
-  // Show or update "Load more" button
+  // Show or update infinite scroll sentinel
   renderLoadMore(remaining, filtered.length)
 
   // Kick off async health checks for all visible service cards
@@ -598,7 +598,7 @@ function renderServices() {
 }
 
 /**
- * Renders or updates the "Load more" button below the services grid.
+ * Renders or updates the infinite scroll sentinel below the services grid.
  * Removed when all services are visible or no matches.
  *
  * @param {number} remaining - Number of services not yet rendered
@@ -638,7 +638,7 @@ function renderLoadMore(remaining, total) {
   if (scrollObserver) scrollObserver.observe(sentinel)
 }
 
-/** Removes the load-more sentinel and info. */
+/** Removes the infinite scroll sentinel and info. */
 function removeLoadMore() {
   if (currentSentinel && scrollObserver) {
     scrollObserver.unobserve(currentSentinel)
@@ -660,7 +660,12 @@ function loadMoreCards() {
   const remaining = filtered.length - visibleCount
 
   const fragment = document.createDocumentFragment()
-  page.forEach(s => fragment.appendChild(buildCard(s)))
+  page.forEach((s, i) => {
+    const card = buildCard(s)
+    // Stagger entrance animation for scroll-appended cards
+    card.style.animationDelay = (i * 0.05) + 's'
+    fragment.appendChild(card)
+  })
   grid.appendChild(fragment)
 
   renderLoadMore(remaining, filtered.length)

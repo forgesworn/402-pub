@@ -757,7 +757,7 @@ main {
 }
 
 /* ============================================================
-   Load More Button
+   Infinite Scroll — Load More Sentinel
    ============================================================ */
 
 .load-more {
@@ -766,26 +766,6 @@ main {
   align-items: center;
   gap: 0.5rem;
   padding: 1.5rem 0;
-}
-
-.btn-load-more {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.65rem 2rem;
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-family: var(--font-body);
-  font-weight: 500;
-  cursor: pointer;
-  border: 1px solid var(--accent-amber-dim);
-  background: transparent;
-  color: var(--accent-amber);
-  transition: all 0.2s;
-}
-
-.btn-load-more:hover {
-  background: var(--accent-amber-dim);
-  border-color: var(--accent-amber);
 }
 
 .load-more-info {
