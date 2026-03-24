@@ -71,6 +71,6 @@ with L402, x402, or Cashu, caches credentials, and tracks spend with safety limi
 ## Optional
 
 - [402.pub website](https://402.pub/)
-- [toll-booth on npm](https://www.npmjs.com/package/@thecryptodonkey/toll-booth)
+- [toll-booth on npm](https://www.npmjs.com/package/@forgesworn/toll-booth)
 - [402-mcp on npm](https://www.npmjs.com/package/402-mcp)
 - [402-announce on npm](https://www.npmjs.com/package/402-announce)

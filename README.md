@@ -15,7 +15,7 @@
 Gate any HTTP endpoint behind a paywall in a few lines of code. Announce it on Nostr and it appears here automatically.
 
 ```bash
-npm i @thecryptodonkey/toll-booth
+npm i @forgesworn/toll-booth
 ```
 
 - [toll-booth](https://github.com/forgesworn/toll-booth) — L402 paywall middleware for Express, Hono, or any HTTP framework
