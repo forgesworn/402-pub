@@ -249,7 +249,7 @@ function handleEvent(event) {
 
   const dTag = getTag('d')
   const name = getTag('name')
-  const url = getTag('url')
+  const url = (getTag('url') || '').replace(/\\+$/, '')
   const about = getTag('about')
 
   // Require all four mandatory fields
@@ -2034,8 +2034,8 @@ document.addEventListener('click', (e) => {
   if (!btn) return
 
   const url = btn.dataset.url
-  // Strip control characters, trailing backslashes, and single-quote the URL to prevent shell injection
-  const safeUrl = url.replace(/[\x00-\x1f\x7f]/g, '').replace(/\\+$/, '').replace(/'/g, "'\\''")
+  // Strip control characters and single-quote the URL to prevent shell injection
+  const safeUrl = url.replace(/[\x00-\x1f\x7f]/g, '').replace(/'/g, "'\\''")
   const cmd = "curl -i '" + safeUrl + "' -H 'Accept: application/json'"
   navigator.clipboard.writeText(cmd).then(() => {
     btn.textContent = 'Copied!'
