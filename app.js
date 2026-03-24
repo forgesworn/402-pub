@@ -2015,17 +2015,41 @@ document.addEventListener('click', (e) => {
   renderServices()
 })
 
-// Smooth scroll for hero CTA buttons (respects prefers-reduced-motion)
+// Audience tab switching
+function switchAudienceTab(tabId) {
+  document.querySelectorAll('.audience-tab').forEach(t => {
+    t.classList.remove('active')
+    t.setAttribute('aria-selected', 'false')
+  })
+  document.querySelectorAll('.audience-panel').forEach(p => {
+    p.classList.remove('active')
+    p.hidden = true
+  })
+  const tab = document.getElementById(tabId)
+  const panel = document.getElementById(tab.getAttribute('aria-controls'))
+  tab.classList.add('active')
+  tab.setAttribute('aria-selected', 'true')
+  panel.classList.add('active')
+  panel.hidden = false
+}
+
+document.querySelectorAll('.audience-tab').forEach(tab => {
+  tab.addEventListener('click', () => switchAudienceTab(tab.id))
+})
+
+// Smooth scroll for hero CTA buttons + tab switching (respects prefers-reduced-motion)
 document.addEventListener('click', (e) => {
   const cta = e.target.closest('#cta-operator, #cta-agent')
   if (!cta) return
   e.preventDefault()
+  const tabId = cta.dataset.tab
+  if (tabId) switchAudienceTab(tabId)
   const href = cta.getAttribute('href')
   if (!href || !href.startsWith('#')) return
-  const target = document.getElementById(href.slice(1))
-  if (!target) return
+  const section = document.querySelector('.audience-section')
+  if (!section) return
   const behaviour = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
-  target.scrollIntoView({ behavior: behaviour })
+  section.scrollIntoView({ behavior: behaviour })
 })
 
 // Copy curl command to clipboard

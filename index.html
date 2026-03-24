@@ -61,8 +61,8 @@
       <div class="hero-updated" id="hero-last-updated" aria-live="polite"></div>
 
       <div class="hero-ctas">
-        <a href="#card-operator" class="btn btn-primary" id="cta-operator">I run an API</a>
-        <a href="#card-agent" class="btn btn-secondary" id="cta-agent">I build agents</a>
+        <a href="#panel-operator" class="btn btn-primary" id="cta-operator" data-tab="tab-operator">I run an API</a>
+        <a href="#panel-agent" class="btn btn-secondary" id="cta-agent" data-tab="tab-agent">I build agents</a>
       </div>
 
       <div id="relay-status" class="relay-status" role="status" aria-label="Relay connection status"></div>
@@ -70,16 +70,15 @@
   </header>
 
   <main>
-    <!-- ===== Audience Cards ===== -->
+    <!-- ===== Audience Tabs ===== -->
     <section class="audience-section">
-      <div class="audience-card audience-card-operator" id="card-operator">
-        <div class="audience-label">Monetise Your API</div>
+      <div class="audience-tabs" role="tablist" aria-label="Get started">
+        <button class="audience-tab audience-tab-operator active" role="tab" aria-selected="true" aria-controls="panel-operator" id="tab-operator">I run an API</button>
+        <button class="audience-tab audience-tab-agent" role="tab" aria-selected="false" aria-controls="panel-agent" id="tab-agent">I build agents</button>
+      </div>
+
+      <div class="audience-panel audience-panel-operator active" role="tabpanel" id="panel-operator" aria-labelledby="tab-operator">
         <h2>Gate any API behind a paywall in 5 lines</h2>
-        <ul class="audience-benefits">
-          <li>toll-booth — L402 paywall middleware for Express, Hono, or any HTTP framework</li>
-          <li>402-announce — publish your service on Nostr for decentralised discovery</li>
-          <li>toll-booth-announce — one-line bridge from your toll-booth config to Nostr</li>
-        </ul>
         <pre><code>npm i @forgesworn/toll-booth</code></pre>
         <div class="audience-links">
           <a href="https://github.com/forgesworn/toll-booth">toll-booth</a>
@@ -88,14 +87,8 @@
         </div>
       </div>
 
-      <div class="audience-card audience-card-agent" id="card-agent">
-        <div class="audience-label">Build an Agent</div>
+      <div class="audience-panel audience-panel-agent" role="tabpanel" id="panel-agent" aria-labelledby="tab-agent" hidden>
         <h2>Give your agent a wallet. It handles the rest.</h2>
-        <ul class="audience-benefits">
-          <li>Discovers paid APIs on Nostr via kind 31402 — no hardcoded URLs</li>
-          <li>Pays with L402, x402, or Cashu — autonomous, no human approval needed</li>
-          <li>Caches credentials and tracks spend with configurable safety limits</li>
-        </ul>
         <pre><code>npx 402-mcp</code></pre>
         <div class="audience-links">
           <a href="https://github.com/forgesworn/402-mcp">402-mcp</a>

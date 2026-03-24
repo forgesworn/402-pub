@@ -367,11 +367,8 @@ header h1::after {
    ============================================================ */
 
 .audience-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
   margin: 0 -2rem;
-  padding: 2.5rem 2rem;
+  padding: 1.5rem 2rem;
   background: linear-gradient(
     180deg,
     var(--bg-surface) 0%,
@@ -381,105 +378,99 @@ header h1::after {
   border-top: 1px solid var(--border-medium);
 }
 
-.audience-card {
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  position: relative;
+/* --- Audience Tabs --- */
+
+.audience-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border-medium);
+  margin-bottom: 1.25rem;
 }
 
-.audience-card-operator {
-  background: rgba(245, 158, 11, 0.04);
-  border: 1px solid rgba(245, 158, 11, 0.15);
-}
-
-.audience-card-agent {
-  background: rgba(59, 130, 246, 0.04);
-  border: 1px solid rgba(59, 130, 246, 0.15);
-}
-
-.audience-card .audience-label {
-  font-size: 0.75rem;
+.audience-tab {
+  padding: 0.6rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  letter-spacing: 0.01em;
 }
 
-.audience-card-operator .audience-label { color: var(--accent-amber); }
-.audience-card-agent .audience-label { color: var(--accent-blue); }
+.audience-tab:hover {
+  color: var(--text-secondary);
+}
 
-.audience-card h2 {
+.audience-tab-operator.active {
+  color: var(--accent-amber);
+  border-bottom-color: var(--accent-amber);
+}
+
+.audience-tab-agent.active {
+  color: var(--accent-blue);
+  border-bottom-color: var(--accent-blue);
+}
+
+/* --- Audience Panels --- */
+
+.audience-panel {
+  display: none;
+}
+
+.audience-panel.active {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.audience-panel h2 {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  margin: 0 0 0.5rem;
+  margin: 0;
   color: var(--text-primary);
   letter-spacing: -0.01em;
+  flex-shrink: 0;
 }
 
-.audience-intro {
-  color: var(--text-secondary);
-  margin: 0 0 1rem;
-  font-size: 0.92rem;
-  line-height: 1.5;
+.audience-panel pre {
+  margin: 0;
+  flex-shrink: 0;
 }
 
-.audience-benefits {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.audience-benefits li {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  padding-left: 1.2rem;
-  position: relative;
-}
-
-.audience-benefits li::before {
-  content: '\2014';
-  position: absolute;
-  left: 0;
-  color: var(--text-muted);
-}
-
-.audience-card pre {
-  margin: 0 0 1rem;
-}
-
-.audience-card code {
+.audience-panel code {
   display: block;
   background: rgba(0, 0, 0, 0.4);
-  padding: 0.75rem 1rem;
+  padding: 0.45rem 0.85rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-subtle);
-  overflow-x: auto;
   font-size: 0.78rem;
-  line-height: 1.5;
   font-family: var(--font-code);
   white-space: pre;
 }
 
-.audience-card-operator code { color: var(--accent-amber); }
-.audience-card-agent code { color: var(--accent-blue); }
+.audience-panel-operator code { color: var(--accent-amber); }
+.audience-panel-agent code { color: var(--accent-blue); }
 
 .audience-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  gap: 0.5rem;
+  margin-left: auto;
 }
 
 .audience-links a {
   display: inline-flex;
   align-items: center;
-  padding: 0.4rem 0.85rem;
+  padding: 0.35rem 0.75rem;
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: var(--text-secondary);
   text-decoration: none;
   transition: all 0.2s;
@@ -1746,9 +1737,6 @@ footer a:hover {
     font-size: 2.2rem;
   }
 
-  .audience-section {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ============================================================
@@ -1851,7 +1839,17 @@ footer a:hover {
 
   .audience-section {
     margin: 0 -1.25rem;
-    padding: 2rem 1.25rem;
+    padding: 1.25rem 1.25rem;
+  }
+
+  .audience-panel.active {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .audience-links {
+    margin-left: 0;
   }
 
   .announce-cta pre {
@@ -1981,24 +1979,19 @@ footer a:hover {
     max-width: 280px;
   }
 
-  .audience-card {
-    padding: 1.5rem 1.25rem;
+  .audience-panel h2 {
+    font-size: 0.95rem;
   }
 
-  .audience-card h2 {
-    font-size: 1.05rem;
-  }
-
-  .audience-card code {
+  .audience-panel code {
     font-size: 0.72rem;
-    padding: 1rem;
     white-space: pre-wrap;
     word-break: break-word;
   }
 
   .audience-links a {
     padding: 0.35rem 0.7rem;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
   }
 
   footer {
@@ -2044,7 +2037,7 @@ footer a:hover {
 
   .audience-section {
     margin: 0 -1rem;
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem;
   }
 
   .announce-cta {
