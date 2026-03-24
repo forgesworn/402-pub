@@ -2385,10 +2385,13 @@ function downloadServicesJSON() {
 scrollObserver = new IntersectionObserver((entries) => {
   if (!entries[0].isIntersecting || isLoadingMore) return
   isLoadingMore = true
-  visibleCount += PAGE_SIZE
-  loadMoreCards()
-  requestAnimationFrame(() => { isLoadingMore = false })
-}, { rootMargin: '400px' })
+  // Brief pause so the loader is visible and the scroll feels intentional
+  setTimeout(() => {
+    visibleCount += PAGE_SIZE
+    loadMoreCards()
+    setTimeout(() => { isLoadingMore = false }, 100)
+  }, 600)
+}, { rootMargin: '200px' })
 
 connectAll()
 fetchExternalSources()
