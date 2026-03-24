@@ -394,6 +394,11 @@ let lastPillServiceCount = -1
 /** Whether topic pills are expanded (showing all) or collapsed */
 let topicPillsExpanded = false
 
+/** IntersectionObserver for infinite scroll — loads next page when sentinel enters viewport */
+let scrollObserver = null
+let isLoadingMore = false
+let currentSentinel = null
+
 /**
  * Rebuilds the relay status row in the header.
  * Each relay gets a coloured dot + text label (colour-blind safe).
@@ -456,6 +461,62 @@ function renderRelayStatus() {
 }
 
 /**
+ * Applies all active filters and sorts to the services array.
+ * Shared by renderServices (full rebuild) and loadMoreCards (append).
+ *
+ * @param {Array} allServices - All parsed service objects
+ * @returns {Array} Filtered and sorted array
+ */
+function getFilteredSorted(allServices) {
+  let filtered = allServices
+
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase()
+    filtered = filtered.filter(s =>
+      s.name.toLowerCase().includes(q) ||
+      s.about.toLowerCase().includes(q) ||
+      s.topics.some(t => t.toLowerCase().includes(q))
+    )
+  }
+
+  if (activeRailFilter !== 'all') {
+    filtered = filtered.filter(s => s.paymentMethods.includes(activeRailFilter))
+  }
+
+  if (activeTierFilter !== 'all') {
+    filtered = filtered.filter(s => (s.trustTier || TIER_SELF) === activeTierFilter)
+  }
+
+  if (activeTransportFilter !== 'all') {
+    filtered = filtered.filter(s =>
+      s.transports && s.transports.includes(activeTransportFilter)
+    )
+  }
+
+  if (activePaymentFilters.size > 0) {
+    filtered = filtered.filter(s =>
+      [...activePaymentFilters].every(f => s.paymentMethods.includes(f))
+    )
+  }
+
+  if (activeTopicFilters.size > 0) {
+    filtered = filtered.filter(s =>
+      [...activeTopicFilters].every(f => s.topics.includes(f))
+    )
+  }
+
+  const tierOrder = { [TIER_SELF]: 0, [TIER_DISCOVERED]: 1, [TIER_STALE]: 2 }
+  filtered.sort((a, b) => {
+    const ta = tierOrder[a.trustTier || TIER_SELF] ?? 1
+    const tb = tierOrder[b.trustTier || TIER_SELF] ?? 1
+    if (ta !== tb) return ta - tb
+    return b.createdAt - a.createdAt
+  })
+
+  return filtered
+}
+
+/**
  * Applies current filters to the service store, sorts by recency,
  * and re-renders the services grid and filter pills.
  */
@@ -470,56 +531,8 @@ function renderServices() {
     renderFilterPills(allServices)
   }
 
-  // Apply search query
-  let filtered = allServices
-  if (searchQuery) {
-    const q = searchQuery.toLowerCase()
-    filtered = filtered.filter(s =>
-      s.name.toLowerCase().includes(q) ||
-      s.about.toLowerCase().includes(q) ||
-      s.topics.some(t => t.toLowerCase().includes(q))
-    )
-  }
-
-  // Apply payment rail filter (top-level rail buttons)
-  if (activeRailFilter !== 'all') {
-    filtered = filtered.filter(s => s.paymentMethods.includes(activeRailFilter))
-  }
-
-  // Apply trust tier filter
-  if (activeTierFilter !== 'all') {
-    filtered = filtered.filter(s => (s.trustTier || TIER_SELF) === activeTierFilter)
-  }
-
-  // Apply transport filter
-  if (activeTransportFilter !== 'all') {
-    filtered = filtered.filter(s =>
-      s.transports && s.transports.includes(activeTransportFilter)
-    )
-  }
-
-  // Apply payment method filters (AND logic — must have all selected)
-  if (activePaymentFilters.size > 0) {
-    filtered = filtered.filter(s =>
-      [...activePaymentFilters].every(f => s.paymentMethods.includes(f))
-    )
-  }
-
-  // Apply topic filters (AND logic)
-  if (activeTopicFilters.size > 0) {
-    filtered = filtered.filter(s =>
-      [...activeTopicFilters].every(f => s.topics.includes(f))
-    )
-  }
-
-  // Sort: self-announced first, then discovered, then stale. Within each tier, by recency.
-  const tierOrder = { [TIER_SELF]: 0, [TIER_DISCOVERED]: 1, [TIER_STALE]: 2 }
-  filtered.sort((a, b) => {
-    const ta = tierOrder[a.trustTier || TIER_SELF] ?? 1
-    const tb = tierOrder[b.trustTier || TIER_SELF] ?? 1
-    if (ta !== tb) return ta - tb
-    return b.createdAt - a.createdAt
-  })
+  // Apply filters and sort
+  const filtered = getFilteredSorted(allServices)
 
   // Update service count in toolbar (with bounce animation on change)
   const nostrCount = allServices.filter(s => s.source === 'nostr').length
@@ -577,19 +590,6 @@ function renderServices() {
   // Show or update "Load more" button
   renderLoadMore(remaining, filtered.length)
 
-  // Attach clipboard handlers to "Copy" buttons
-  grid.querySelectorAll('.copy-pubkey').forEach(btn => {
-    btn.addEventListener('click', () => {
-      navigator.clipboard.writeText(btn.dataset.pubkey).then(() => {
-        btn.textContent = 'Copied!'
-        setTimeout(() => { btn.textContent = 'Copy' }, 1500)
-      }).catch(() => {
-        btn.textContent = 'Error'
-        setTimeout(() => { btn.textContent = 'Copy' }, 1500)
-      })
-    })
-  })
-
   // Kick off async health checks for all visible service cards
   updateHealthDots()
 
@@ -612,15 +612,19 @@ function renderLoadMore(remaining, total) {
   container.id = 'load-more'
   container.className = 'load-more'
 
-  const btn = document.createElement('button')
-  btn.className = 'btn-load-more'
-  const next = Math.min(remaining, PAGE_SIZE)
-  btn.textContent = 'Show ' + next + ' more'
-  btn.addEventListener('click', () => {
-    visibleCount += PAGE_SIZE
-    renderServices()
-  })
-  container.appendChild(btn)
+  // Sentinel element — IntersectionObserver triggers next page load
+  const sentinel = document.createElement('div')
+  sentinel.className = 'scroll-sentinel'
+  container.appendChild(sentinel)
+  currentSentinel = sentinel
+
+  // Loading dots
+  const loader = document.createElement('div')
+  loader.className = 'scroll-loader'
+  for (let i = 0; i < 3; i++) {
+    loader.appendChild(document.createElement('span'))
+  }
+  container.appendChild(loader)
 
   const info = document.createElement('span')
   info.className = 'load-more-info'
@@ -629,12 +633,39 @@ function renderLoadMore(remaining, total) {
 
   const grid = document.getElementById('services-grid')
   grid.parentNode.insertBefore(container, grid.nextSibling)
+
+  // Observe sentinel for infinite scroll
+  if (scrollObserver) scrollObserver.observe(sentinel)
 }
 
-/** Removes the load-more button if present. */
+/** Removes the load-more sentinel and info. */
 function removeLoadMore() {
+  if (currentSentinel && scrollObserver) {
+    scrollObserver.unobserve(currentSentinel)
+    currentSentinel = null
+  }
   const el = document.getElementById('load-more')
   if (el) el.remove()
+}
+
+/**
+ * Appends the next page of cards without clearing the grid.
+ * Used by infinite scroll to avoid re-rendering visible cards.
+ */
+function loadMoreCards() {
+  const grid = document.getElementById('services-grid')
+  const allServices = [...services.values()]
+  const filtered = getFilteredSorted(allServices)
+  const page = filtered.slice(visibleCount - PAGE_SIZE, visibleCount)
+  const remaining = filtered.length - visibleCount
+
+  const fragment = document.createDocumentFragment()
+  page.forEach(s => fragment.appendChild(buildCard(s)))
+  grid.appendChild(fragment)
+
+  renderLoadMore(remaining, filtered.length)
+  updateHealthDots()
+  updateHeroStats()
 }
 
 /**
@@ -1121,11 +1152,12 @@ function buildPillGroup(container, values, activeSet, filterType, labelFn) {
 function formatPaymentMethod(m) {
   const n = normalisePmi(m)
   switch (n) {
-    case 'l402':   return 'L402'
-    case 'x402':   return 'x402'
-    case 'cashu':  return 'Cashu'
-    case 'xcashu': return 'xCashu'
-    default:       return n
+    case 'l402':    return 'L402'
+    case 'x402':    return 'x402'
+    case 'cashu':   return 'Cashu'
+    case 'xcashu':  return 'xCashu'
+    case 'payment': return 'IETF Payment'
+    default:        return n
   }
 }
 
@@ -1271,6 +1303,10 @@ function formatPaymentMethodDetail(pmiParts) {
       return 'Cashu'
     case 'xcashu':
       return 'xCashu'
+    case 'payment': {
+      const intent = pmiParts[1] || 'lightning'
+      return 'IETF Payment (' + intent.charAt(0).toUpperCase() + intent.slice(1) + ')'
+    }
     default:
       return rail
   }
@@ -2004,6 +2040,19 @@ document.addEventListener('click', (e) => {
   })
 })
 
+// Copy pubkey to clipboard (delegated — works with infinite scroll)
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.copy-pubkey')
+  if (!btn) return
+  navigator.clipboard.writeText(btn.dataset.pubkey).then(() => {
+    btn.textContent = 'Copied!'
+    setTimeout(() => { btn.textContent = 'Copy' }, 1500)
+  }).catch(() => {
+    btn.textContent = 'Error'
+    setTimeout(() => { btn.textContent = 'Copy' }, 1500)
+  })
+})
+
 /* ============================================================
    Health Check — All Relays Down Banner
    ============================================================ */
@@ -2195,6 +2244,47 @@ function updateHeroStats() {
 })()
 
 /* ============================================================
+   Back to Top Button
+   ============================================================ */
+
+;(function initBackToTop() {
+  const btn = document.createElement('button')
+  btn.className = 'back-to-top'
+  btn.setAttribute('aria-label', 'Scroll to top')
+  btn.textContent = '\u2191'
+  btn.addEventListener('click', () => {
+    const behaviour = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    window.scrollTo({ top: 0, behavior: behaviour })
+  })
+  document.body.appendChild(btn)
+
+  let ticking = false
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        btn.classList.toggle('visible', window.scrollY > 600)
+        ticking = false
+      })
+      ticking = true
+    }
+  }, { passive: true })
+})()
+
+/* ============================================================
+   Keyboard Shortcuts
+   ============================================================ */
+
+// Press '/' anywhere to focus the search bar
+document.addEventListener('keydown', (e) => {
+  if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey) {
+    const active = document.activeElement
+    if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable)) return
+    e.preventDefault()
+    document.getElementById('search').focus()
+  }
+})
+
+/* ============================================================
    Service Export — Machine-readable feeds for other directories
    ============================================================ */
 
@@ -2278,6 +2368,15 @@ function downloadServicesJSON() {
 /* ============================================================
    Initialise
    ============================================================ */
+
+// Set up infinite scroll observer
+scrollObserver = new IntersectionObserver((entries) => {
+  if (!entries[0].isIntersecting || isLoadingMore) return
+  isLoadingMore = true
+  visibleCount += PAGE_SIZE
+  loadMoreCards()
+  requestAnimationFrame(() => { isLoadingMore = false })
+}, { rootMargin: '400px' })
 
 connectAll()
 fetchExternalSources()

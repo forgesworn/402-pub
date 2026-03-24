@@ -2109,6 +2109,87 @@ footer a:hover {
   border-color: rgba(59, 130, 246, 0.4);
 }
 
+/* ============================================================
+   Infinite Scroll — Sentinel & Loading Dots
+   ============================================================ */
+
+.scroll-sentinel {
+  height: 1px;
+}
+
+.scroll-loader {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+.scroll-loader span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-amber);
+  opacity: 0.4;
+  animation: scrollLoaderBounce 1.2s ease-in-out infinite;
+}
+
+.scroll-loader span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.scroll-loader span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes scrollLoaderBounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
+  40% { transform: scale(1); opacity: 0.8; }
+}
+
+/* ============================================================
+   Back to Top Button
+   ============================================================ */
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--accent-amber);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s, background 0.2s, border-color 0.2s;
+  pointer-events: none;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: var(--accent-amber-dim);
+  border-color: var(--accent-amber);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
 /* Export controls */
 .export-row {
   display: flex;
@@ -2178,5 +2259,14 @@ footer a:hover {
 
   .modal-content {
     animation: none;
+  }
+
+  .back-to-top {
+    transition: none;
+  }
+
+  .scroll-loader span {
+    animation: none;
+    opacity: 0.5;
   }
 }
