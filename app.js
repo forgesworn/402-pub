@@ -2034,8 +2034,8 @@ document.addEventListener('click', (e) => {
   if (!btn) return
 
   const url = btn.dataset.url
-  // Strip control characters and single-quote the URL to prevent shell injection
-  const safeUrl = url.replace(/[\x00-\x1f\x7f]/g, '').replace(/'/g, "'\\''")
+  // Strip control characters, trailing backslashes, and single-quote the URL to prevent shell injection
+  const safeUrl = url.replace(/[\x00-\x1f\x7f]/g, '').replace(/\\+$/, '').replace(/'/g, "'\\''")
   const cmd = "curl -i '" + safeUrl + "' -H 'Accept: application/json'"
   navigator.clipboard.writeText(cmd).then(() => {
     btn.textContent = 'Copied!'
