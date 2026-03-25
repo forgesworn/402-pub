@@ -25,9 +25,9 @@ AI agents and other discovery pages can consume 402.pub's aggregated data:
 
 | Source | Protocol | Scale | Update |
 |--------|----------|-------|--------|
-| Nostr relays (7 default) | L402, x402, Cashu | Real-time streaming | Live |
+| Nostr relays (6 default) | L402, x402, Cashu | Real-time streaming | Live |
 | l402.directory | L402 | ~6 curated | On page load |
-| x402 Bazaar (Coinbase CDP) | x402 (USDC on Base) | ~14,000 resources | On page load |
+| x402 Bazaar (Coinbase CDP) | x402 (USDC on Base) | ~1,000 resources | On page load |
 | agent-commerce.store | L402 (Lightning) | ~48 endpoints | On page load |
 
 ## Service Metadata (kind 31402)
