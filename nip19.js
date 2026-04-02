@@ -15,12 +15,7 @@
 
   const { encode, decode, toWords, fromWords } = window.bech32
 
-  // Resolve the host realm's Array constructor via the window prototype chain.
-  // window is always a host-realm object; in a browser this is just window.Array.
-  // In a Node vm sandbox the walk gives access to the outer Array, which is
-  // required for assert.deepStrictEqual to accept the decoded relays array.
-  // eslint-disable-next-line no-new-func
-  const HostArray = window.__proto__.constructor.constructor('return Array')()
+  const HostArray = window.Array || Array
 
   /** Encode a JS string to a UTF-8 byte array */
   function utf8Encode(str) {
@@ -108,7 +103,7 @@
     buf.push(3, 4, (kind >> 24) & 0xff, (kind >> 16) & 0xff, (kind >> 8) & 0xff, kind & 0xff)
 
     const words = toWords(Uint8Array.from(buf))
-    return encode('naddr', words, false)
+    return encode('naddr', words)
   }
 
   function decodeNaddr(str) {

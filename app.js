@@ -1395,6 +1395,8 @@ function showDeepLinkLoading() {
   overlay.appendChild(modal)
   document.body.appendChild(overlay)
 
+  closeBtn.focus()
+
   const handleEsc = (e) => {
     if (e.key === 'Escape') {
       clearDeepLink()
@@ -1402,6 +1404,7 @@ function showDeepLinkLoading() {
       document.removeEventListener('keydown', handleEsc)
     }
   }
+  overlay._escHandler = handleEsc
   document.addEventListener('keydown', handleEsc)
 }
 
@@ -1442,9 +1445,12 @@ function clearDeepLink() {
  * @param {object} s - Service object
  */
 function showServiceDetail(s) {
-  // Remove any existing modal
+  // Remove any existing modal, cleaning up its escape listener if present
   const existing = document.getElementById('service-modal')
-  if (existing) existing.remove()
+  if (existing) {
+    if (existing._escHandler) document.removeEventListener('keydown', existing._escHandler)
+    existing.remove()
+  }
 
   const overlay = document.createElement('div')
   overlay.id = 'service-modal'
@@ -2574,10 +2580,13 @@ fetchExternalSources()
       return
     }
 
-    // Connect to relay hints (if not already connected)
+    // Connect to relay hints (if not already connected, max 3)
+    let hintCount = 0
     for (const hint of decoded.relays) {
+      if (hintCount >= 3) break
       if (typeof hint === 'string' && hint.startsWith('wss://') && !relays.has(hint)) {
         connectToRelay(hint)
+        hintCount++
       }
     }
 

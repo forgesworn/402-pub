@@ -8,7 +8,7 @@ import vm from 'node:vm'
 const dir = dirname(fileURLToPath(import.meta.url))
 
 function loadNip19() {
-  const context = { window: {} }
+  const context = { window: { Array } }
   vm.createContext(context)
   vm.runInContext(readFileSync(join(dir, '..', 'bech32.js'), 'utf8'), context)
   vm.runInContext(readFileSync(join(dir, '..', 'nip19.js'), 'utf8'), context)
