@@ -1450,7 +1450,10 @@ function showServiceDetail(s) {
   overlay.id = 'service-modal'
   overlay.className = 'modal-overlay'
   overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) overlay.remove()
+    if (e.target === overlay) {
+      overlay.remove()
+      history.replaceState(null, '', window.location.pathname + window.location.search)
+    }
   })
 
   const modal = document.createElement('div')
@@ -1461,7 +1464,10 @@ function showServiceDetail(s) {
   closeBtn.className = 'modal-close'
   closeBtn.textContent = '\u00d7'
   closeBtn.setAttribute('aria-label', 'Close')
-  closeBtn.addEventListener('click', () => overlay.remove())
+  closeBtn.addEventListener('click', () => {
+    overlay.remove()
+    history.replaceState(null, '', window.location.pathname + window.location.search)
+  })
   modal.appendChild(closeBtn)
 
   // Service name
@@ -1664,6 +1670,35 @@ function showServiceDetail(s) {
     modal.appendChild(topicSection)
   }
 
+  // --- Share link ---
+  if (s.pubkey && s.identifier) {
+    const shareSection = document.createElement('div')
+    shareSection.className = 'modal-section modal-share-section'
+
+    const shareBtn = document.createElement('button')
+    shareBtn.className = 'btn-share'
+    shareBtn.textContent = 'Copy share link'
+    shareBtn.addEventListener('click', () => {
+      const naddr = window.nip19.encodeNaddr({
+        kind: L402_KIND,
+        pubkey: s.pubkey,
+        dTag: s.identifier,
+        relays: [],
+      })
+      history.replaceState(null, '', '#' + naddr)
+      const url = window.location.href
+      navigator.clipboard.writeText(url).then(() => {
+        shareBtn.textContent = 'Copied!'
+        setTimeout(() => { shareBtn.textContent = 'Copy share link' }, 1500)
+      }).catch(() => {
+        shareBtn.textContent = 'Error'
+        setTimeout(() => { shareBtn.textContent = 'Copy share link' }, 1500)
+      })
+    })
+    shareSection.appendChild(shareBtn)
+    modal.appendChild(shareSection)
+  }
+
   overlay.appendChild(modal)
   document.body.appendChild(overlay)
 
@@ -1674,6 +1709,7 @@ function showServiceDetail(s) {
   const handleEsc = (e) => {
     if (e.key === 'Escape') {
       overlay.remove()
+      history.replaceState(null, '', window.location.pathname + window.location.search)
       document.removeEventListener('keydown', handleEsc)
     }
   }

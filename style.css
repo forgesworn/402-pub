@@ -2245,3 +2245,39 @@ footer a:hover {
     opacity: 0.5;
   }
 }
+
+/* ============================================================
+   Share Button & Deep-Link Modal States
+   ============================================================ */
+
+.modal-share-section {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-share {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.btn-share:hover { opacity: 0.85; }
+
+.modal-loading .modal-spinner,
+.modal-loading .modal-not-found {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.modal-not-found {
+  color: var(--text-secondary);
+}
