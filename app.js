@@ -54,6 +54,16 @@ const TIER_DISCOVERED = 'discovered'
 const TIER_STALE = 'stale'
 
 /* ============================================================
+   Deep-Link State
+   ============================================================ */
+
+/** Pending deep-link target: { pubkey, dTag } or null */
+let pendingDeepLink = null
+
+/** Timeout ID for deep-link "not found" state */
+let deepLinkTimeout = null
+
+/* ============================================================
    PMI Normalisation (backward compatibility)
    ============================================================ */
 
@@ -358,6 +368,16 @@ function handleEvent(event) {
   })
 
   renderServices()
+
+  // Check if this event resolves a pending deep-link
+  if (pendingDeepLink && event.pubkey === pendingDeepLink.pubkey && dTag === pendingDeepLink.dTag) {
+    pendingDeepLink = null
+    if (deepLinkTimeout) {
+      clearTimeout(deepLinkTimeout)
+      deepLinkTimeout = null
+    }
+    showServiceDetail(services.get(key))
+  }
 }
 
 /**
@@ -1330,6 +1350,85 @@ function getTierLabel(s) {
   if (tier === TIER_DISCOVERED) return 'Discovered by 402.pub'
   if (s.source !== 'nostr') return 'Indexed via ' + s.source
   return 'Self-announced'
+}
+
+/* ============================================================
+   Deep-Link Loading / Not-Found Modals
+   ============================================================ */
+
+/**
+ * Shows a loading modal for a pending deep-link while we wait for the
+ * matching event to arrive from relays.
+ */
+function showDeepLinkLoading() {
+  const existing = document.getElementById('service-modal')
+  if (existing) existing.remove()
+
+  const overlay = document.createElement('div')
+  overlay.id = 'service-modal'
+  overlay.className = 'modal-overlay'
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      clearDeepLink()
+      overlay.remove()
+    }
+  })
+
+  const modal = document.createElement('div')
+  modal.className = 'modal-content modal-loading'
+
+  const closeBtn = document.createElement('button')
+  closeBtn.className = 'modal-close'
+  closeBtn.textContent = '\u00d7'
+  closeBtn.setAttribute('aria-label', 'Close')
+  closeBtn.addEventListener('click', () => {
+    clearDeepLink()
+    overlay.remove()
+  })
+  modal.appendChild(closeBtn)
+
+  const spinner = document.createElement('div')
+  spinner.className = 'modal-spinner'
+  spinner.textContent = 'Connecting to relays\u2026'
+  modal.appendChild(spinner)
+
+  overlay.appendChild(modal)
+  document.body.appendChild(overlay)
+
+  const handleEsc = (e) => {
+    if (e.key === 'Escape') {
+      clearDeepLink()
+      overlay.remove()
+      document.removeEventListener('keydown', handleEsc)
+    }
+  }
+  document.addEventListener('keydown', handleEsc)
+}
+
+/**
+ * Replaces the loading modal content with a "not found" message.
+ */
+function showDeepLinkNotFound() {
+  const modal = document.querySelector('#service-modal .modal-content')
+  if (!modal) return
+
+  const spinner = modal.querySelector('.modal-spinner')
+  if (spinner) {
+    spinner.textContent = 'Service not found on connected relays.'
+    spinner.className = 'modal-not-found'
+  }
+}
+
+/** Clears deep-link state and timeout. */
+function clearDeepLink() {
+  pendingDeepLink = null
+  if (deepLinkTimeout) {
+    clearTimeout(deepLinkTimeout)
+    deepLinkTimeout = null
+  }
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search)
+  }
 }
 
 /* ============================================================
@@ -2419,6 +2518,45 @@ scrollObserver = new IntersectionObserver((entries) => {
 
 connectAll()
 fetchExternalSources()
+
+// Deep-link: check for naddr in hash
+;(function checkDeepLink() {
+  const hash = window.location.hash.slice(1)
+  if (!hash.startsWith('naddr1')) return
+
+  try {
+    const decoded = window.nip19.decodeNaddr(hash)
+    if (decoded.kind !== L402_KIND) {
+      console.warn('Deep-link kind', decoded.kind, 'is not', L402_KIND)
+      return
+    }
+
+    const key = decoded.pubkey + ':' + decoded.dTag
+    const existing = services.get(key)
+    if (existing) {
+      showServiceDetail(existing)
+      return
+    }
+
+    // Connect to relay hints (if not already connected)
+    for (const hint of decoded.relays) {
+      if (typeof hint === 'string' && hint.startsWith('wss://') && !relays.has(hint)) {
+        connectToRelay(hint)
+      }
+    }
+
+    pendingDeepLink = { pubkey: decoded.pubkey, dTag: decoded.dTag }
+    showDeepLinkLoading()
+    deepLinkTimeout = setTimeout(() => {
+      if (pendingDeepLink) {
+        showDeepLinkNotFound()
+        pendingDeepLink = null
+      }
+    }, 10_000)
+  } catch (err) {
+    console.warn('Invalid naddr in URL hash:', err.message)
+  }
+})()
 
 /* ============================================================
    Particle Network — Ambient Background Animation
