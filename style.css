@@ -1085,6 +1085,13 @@ main {
   border: 1px solid rgba(34, 197, 94, 0.15);
 }
 
+/* Self-announced: green tint — operator published directly */
+.badge.source-self {
+  background: rgba(34, 197, 94, 0.1);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.15);
+}
+
 /* Indexed: amber tint */
 .badge.source-indexed {
   background: rgba(245, 158, 11, 0.1);

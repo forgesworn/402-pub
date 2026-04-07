@@ -788,8 +788,12 @@ function buildCard(s) {
     tierBadge.className = 'badge source source-indexed'
     tierBadge.textContent = 'Indexed via ' + s.source
     headerRight.appendChild(tierBadge)
+  } else {
+    // Self-announced: first-class, published directly by the operator
+    tierBadge.className = 'badge source source-self'
+    tierBadge.textContent = 'Self-announced'
+    headerRight.appendChild(tierBadge)
   }
-  // Self-announced services: no qualifier badge (they are first-class)
 
   const timestampSpan = document.createElement('span')
   timestampSpan.className = 'timestamp'
