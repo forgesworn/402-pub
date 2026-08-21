@@ -38,7 +38,7 @@ Each service listing includes:
 - **url**: API endpoint URL(s)
 - **about**: Description of what the service does
 - **pricing**: Per-capability pricing (amount + currency)
-- **paymentMethods**: Supported payment rails (l402, x402, cashu)
+- **paymentMethods**: Supported payment rails (l402, x402, cashu, xcashu, lnurlcash, payment)
 - **topics**: Category tags for filtering
 - **website**: Project homepage (optional, via content JSON)
 - **docs**: Documentation URL (optional, via content JSON)
