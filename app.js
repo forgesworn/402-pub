@@ -72,6 +72,9 @@ let deepLinkTimeout = null
  * Old Nostr events on relays still use the long-form identifiers;
  * this maps them to the short identifiers the UI expects.
  *
+ * Current identifiers (l402, x402, cashu, xcashu, lnurlcash, payment)
+ * have no legacy spelling and pass through unchanged.
+ *
  * @param {string} raw - Raw pmi tag value
  * @returns {string} Normalised identifier
  */
@@ -401,7 +404,7 @@ function handleEose(url) {
 let searchQuery = ''
 let activePaymentFilters = new Set()
 let activeTopicFilters = new Set()
-let activeRailFilter = 'all'   // 'all', 'l402', 'x402', 'cashu'
+let activeRailFilter = 'all'   // 'all', 'l402', 'x402', 'payment', 'cashu', 'xcashu', 'lnurlcash'
 let activeTierFilter = 'all'   // 'all', 'self', 'discovered'
 let activeTransportFilter = 'all' // 'all', 'https', 'http', 'onion', 'hns'
 
@@ -1023,6 +1026,8 @@ function renderFilterPills(allServices) {
       { value: 'x402', label: 'x402' },
       { value: 'payment', label: 'IETF 402' },
       { value: 'cashu', label: 'Cashu' },
+      { value: 'xcashu', label: 'xCashu' },
+      { value: 'lnurlcash', label: 'LNURLcash' },
     ],
     activeRailFilter,
     'rail'
@@ -1176,18 +1181,19 @@ function buildPillGroup(container, values, activeSet, filterType, labelFn) {
 /**
  * Maps a payment method identifier to a short human-readable label.
  *
- * @param {string} m - Raw payment method identifier (e.g. 'l402', 'x402', 'cashu', 'xcashu')
- * @returns {string} Short label (e.g. 'L402', 'x402', 'Cashu', 'xCashu')
+ * @param {string} m - Raw payment method identifier (e.g. 'l402', 'x402', 'cashu', 'xcashu', 'lnurlcash')
+ * @returns {string} Short label (e.g. 'L402', 'x402', 'Cashu', 'xCashu', 'LNURLcash')
  */
 function formatPaymentMethod(m) {
   const n = normalisePmi(m)
   switch (n) {
-    case 'l402':    return 'L402'
-    case 'x402':    return 'x402'
-    case 'cashu':   return 'Cashu'
-    case 'xcashu':  return 'xCashu'
-    case 'payment': return 'IETF Payment'
-    default:        return n
+    case 'l402':      return 'L402'
+    case 'x402':      return 'x402'
+    case 'cashu':     return 'Cashu'
+    case 'xcashu':    return 'xCashu'
+    case 'lnurlcash': return 'LNURLcash'
+    case 'payment':   return 'IETF Payment'
+    default:          return n
   }
 }
 
@@ -1311,7 +1317,7 @@ function getTimeAgoISO(isoStr) {
  * Maps a payment method identifier to a human-readable label with
  * additional detail for the service detail modal.
  *
- * @param {string[]} pmiParts - pmi tag elements (e.g. ['l402', 'lightning'] or ['x402', 'base', 'usdc', '0x...'])
+ * @param {string[]} pmiParts - pmi tag elements (e.g. ['l402', 'lightning'], ['x402', 'base', 'usdc', '0x...'] or ['lnurlcash', 'mint.example'])
  * @returns {string} Human-readable description
  */
 function formatPaymentMethodDetail(pmiParts) {
@@ -1333,6 +1339,11 @@ function formatPaymentMethodDetail(pmiParts) {
       return 'Cashu'
     case 'xcashu':
       return 'xCashu'
+    case 'lnurlcash': {
+      // Remaining elements are the mint hosts whose notes the service accepts
+      const mints = pmiParts.slice(1).filter(Boolean)
+      return mints.length > 0 ? 'LNURLcash (' + mints.join(', ') + ')' : 'LNURLcash'
+    }
     case 'payment': {
       const intent = pmiParts[1] || 'lightning'
       return 'IETF Payment (' + intent.charAt(0).toUpperCase() + intent.slice(1) + ')'
