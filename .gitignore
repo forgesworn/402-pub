@@ -17,3 +17,6 @@ serviceAccountKey.json
 .vscode/
 *.swp
 *~
+
+# Internal planning notes
+docs/superpowers/
