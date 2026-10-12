@@ -184,6 +184,7 @@ function connectToRelay(url) {
 
     ws.onmessage = (e) => {
       try {
+        if (typeof e.data !== 'string' || new TextEncoder().encode(e.data).length > 66560) return
         const msg = JSON.parse(e.data)
         if (msg[0] === 'EVENT' && msg[2]) {
           handleEvent(msg[2])
@@ -253,6 +254,12 @@ function handleEvent(event) {
   if (!Array.isArray(event.tags)) return
 
   const tags = event.tags
+  if (tags.some(t => !Array.isArray(t) || t.some(v => typeof v !== 'string'))) return
+  if (!window.StorageServices.verify(event)) return
+  let storage
+  if (window.StorageServices.claims(event)) {
+    try { storage = window.StorageServices.parse(event) } catch { return }
+  }
 
   /** Returns the first value of a named tag, or undefined. */
   const getTag = (name) => tags.find(t => t[0] === name)?.[1]
@@ -269,19 +276,16 @@ function handleEvent(event) {
   if (!dTag || !name || !url || !about) return
 
   // Validate URL: must be http(s), not localhost/private networks
-  if (!isSafeHttpUrl(url)) return
+  if (!storage && !isSafeHttpUrl(url)) return
 
-  // NIP-40: honour event expiration (NaN or missing = never expires)
+  // Retain expiry as a replacement watermark; evaluate visibility after upsert.
   const expiration = getTag('expiration')
-  if (expiration) {
-    const exp = parseInt(expiration, 10)
-    if (Number.isFinite(exp) && exp < Math.floor(Date.now() / 1000)) return
-  }
+  if (expiration && (!/^[0-9]+$/.test(expiration) || !Number.isSafeInteger(Number(expiration)))) return
 
   // Deduplicate: keep the most recently created version
   const key = event.pubkey + ':' + dTag
   const existing = services.get(key)
-  if (existing && existing.createdAt >= event.created_at) return
+  if (existing && (existing.createdAt > event.created_at || (existing.createdAt === event.created_at && existing.id <= event.id))) return
 
   // Cap total service count to prevent memory exhaustion from relay flood
   if (!existing && services.size >= MAX_SERVICES) return
@@ -346,6 +350,8 @@ function handleEvent(event) {
 
   services.set(key, {
     id: event.id,
+    storage,
+    expiresAt: expiration ? Number(expiration) : undefined,
     pubkey: event.pubkey,
     identifier: dTag,
     name,
@@ -370,6 +376,7 @@ function handleEvent(event) {
     transports: detectTransports(url),
   })
 
+  invalidateServiceDetail()
   renderServices()
 
   // Check if this event resolves a pending deep-link
@@ -491,7 +498,7 @@ function renderRelayStatus() {
  * @returns {Array} Filtered and sorted array
  */
 function getFilteredSorted(allServices) {
-  let filtered = allServices
+  let filtered = allServices.filter(s => window.StorageServices.visible(s))
 
   if (searchQuery) {
     const q = searchQuery.toLowerCase()
@@ -546,7 +553,7 @@ function getFilteredSorted(allServices) {
 function renderServices() {
   const grid = document.getElementById('services-grid')
   const emptyState = document.getElementById('empty-state')
-  const allServices = [...services.values()]
+  const allServices = [...services.values()].filter(s => window.StorageServices.visible(s))
 
   // Only rebuild filter pills when the service set has changed
   if (allServices.length !== lastPillServiceCount) {
@@ -677,7 +684,7 @@ function removeLoadMore() {
  */
 function loadMoreCards() {
   const grid = document.getElementById('services-grid')
-  const allServices = [...services.values()]
+  const allServices = [...services.values()].filter(s => window.StorageServices.visible(s))
   const filtered = getFilteredSorted(allServices)
   const page = filtered.slice(visibleCount - PAGE_SIZE, visibleCount)
   const remaining = filtered.length - visibleCount
@@ -716,6 +723,7 @@ function buildCard(s) {
   const article = document.createElement('article')
   article.className = 'service-card' + (tier === TIER_STALE ? ' service-stale' : '')
   article.dataset.serviceKey = s.pubkey + ':' + s.identifier
+  if (s.storage) article.dataset.storageService = 'true'
 
   // --- Header row ---
   const header = document.createElement('div')
@@ -738,7 +746,7 @@ function buildCard(s) {
   // Health status dot
   const healthDot = document.createElement('span')
   healthDot.className = 'health-dot health-unknown'
-  healthDot.title = 'Checking...'
+  healthDot.title = s.storage ? 'Signed operator claim; not probed' : 'Checking...'
   headerLeft.appendChild(healthDot)
 
   const nameEl = document.createElement('a')
@@ -807,6 +815,12 @@ function buildCard(s) {
   header.appendChild(headerLeft)
   header.appendChild(headerRight)
   article.appendChild(header)
+  if (s.storage) {
+    const terms = document.createElement('p')
+    terms.className = 'storage-terms'
+    terms.textContent = window.StorageServices.summary(s.storage)
+    article.appendChild(terms)
+  }
 
   // --- URL ---
   const urlLink = document.createElement('a')
@@ -1193,6 +1207,7 @@ function formatPaymentMethod(m) {
     case 'xcashu':    return 'xCashu'
     case 'lnurlcash': return 'LNURLcash'
     case 'payment':   return 'IETF Payment'
+    case 'wildbloom-checkout': return 'Wildbloom checkout'
     default:          return n
   }
 }
@@ -1460,6 +1475,7 @@ function clearDeepLink() {
  * @param {object} s - Service object
  */
 function showServiceDetail(s) {
+  if (!s || !window.StorageServices.visible(s)) return
   // Remove any existing modal, cleaning up its escape listener if present
   const existing = document.getElementById('service-modal')
   if (existing) {
@@ -1469,6 +1485,7 @@ function showServiceDetail(s) {
 
   const overlay = document.createElement('div')
   overlay.id = 'service-modal'
+  overlay._service = s
   overlay.className = 'modal-overlay'
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
@@ -1584,6 +1601,12 @@ function showServiceDetail(s) {
   }
 
   // --- Capabilities / Pricing section ---
+  if (s.storage) {
+    const terms = document.createElement('p')
+    terms.className = 'storage-terms'
+    terms.textContent = window.StorageServices.summary(s.storage)
+    modal.appendChild(terms)
+  }
   if (s.pricing && s.pricing.length > 0) {
     const pricingSection = document.createElement('div')
     pricingSection.className = 'modal-section'
@@ -1735,6 +1758,19 @@ function showServiceDetail(s) {
     }
   }
   document.addEventListener('keydown', handleEsc)
+  overlay._escHandler = handleEsc
+}
+
+/** Close stale detail views immediately when signed terms change or expire. */
+function invalidateServiceDetail() {
+  const modal = document.getElementById('service-modal')
+  if (!modal?._service) return
+  const key = `${modal._service.pubkey}:${modal._service.identifier}`
+  const latest = services.get(key)
+  if (!latest || !window.StorageServices.visible(latest) || latest.id !== modal._service.id) {
+    if (modal._escHandler) document.removeEventListener('keydown',modal._escHandler)
+    modal.remove()
+  }
 }
 
 /* ============================================================
@@ -2311,6 +2347,7 @@ function updateHealthDots() {
   dots.forEach((dot, i) => {
     const card = dot.closest('.service-card')
     if (!card) return
+    if (card.dataset.storageService === 'true') return // Discovery never probes an operator's storage endpoint.
     const urlEl = card.querySelector('.service-url')
     if (!urlEl) return
     const url = urlEl.href
@@ -2335,7 +2372,7 @@ function updateHealthDots() {
  * Also syncs the active/inactive visual state for clickable rail stats.
  */
 function updateHeroStats() {
-  const allServices = [...services.values()]
+  const allServices = [...services.values()].filter(s => window.StorageServices.visible(s))
 
   // Service count
   const serviceCountEl = document.getElementById('hero-service-count')
@@ -2488,7 +2525,7 @@ document.addEventListener('keydown', (e) => {
  * @returns {object} Export payload with metadata and services array
  */
 function exportServicesJSON() {
-  const allServices = [...services.values()]
+  const allServices = [...services.values()].filter(s => window.StorageServices.visible(s))
   return {
     name: '402.pub',
     description: 'Aggregated directory of paid APIs discovered via Nostr kind 31402 events and external directories',
@@ -2736,3 +2773,9 @@ fetchExternalSources()
   createParticles()
   animId = requestAnimationFrame(tick)
 })()
+
+// Re-evaluate expiration locally; keep signed watermarks without background node requests.
+setInterval(() => {
+  renderServices()
+  invalidateServiceDetail()
+},30000)

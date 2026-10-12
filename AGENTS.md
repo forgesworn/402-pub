@@ -34,6 +34,15 @@ python3 -m http.server 8000
 - British English: colour, behaviour, licence, initialise.
 - XSS safety: all Nostr event strings go through `.textContent`, never `innerHTML`. Relay URLs from localStorage use DOM construction, not string interpolation.
 - No build tools: vanilla HTML/CSS/JS. No bundler, no transpiler, no npm scripts.
+- Deployment remains static. `scripts/storage-vendor` is a maintainer-only,
+  locked reproduction/test workspace for the checked-in pure validator bundle.
+  Run its `npm ci --ignore-scripts` and `npm run build`, then
+  `node --test test/*.test.mjs` and `node test/storage-browser.mjs` at the repo
+  root. Remove its dependency/build scratch directories after pushing.
+- Verify signatures before replacement; invalid claimed storage profiles cannot
+  fall back to generic paid APIs. Keep expiry/withdrawal watermarks in memory,
+  and filter after replacement. Storage listings must never enter automatic
+  HTTP health checks or imply a purchase/direct-upload allowance.
 - Accessibility: ARIA labels, roles, `prefers-reduced-motion` support, screen-reader-only utility class.
 
 ## Common tasks

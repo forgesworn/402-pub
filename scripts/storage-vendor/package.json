@@ -1,0 +1,17 @@
+{
+  "name": "402-pub-storage-vendor",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild entry.mjs --bundle --platform=browser --format=iife --global-name=StorageContract --minify --legal-comments=eof --outfile=../../vendor/storage-v1.js"
+  },
+  "dependencies": {
+    "@noble/hashes": "2.0.1",
+    "402-announce": "2.3.0",
+    "nostr-tools": "2.25.2"
+  },
+  "devDependencies": {
+    "esbuild": "0.27.7",
+    "playwright-core": "1.62.1"
+  }
+}

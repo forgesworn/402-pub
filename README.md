@@ -98,3 +98,24 @@ favicon.*           Favicon set (ICO, SVG, PNG sizes)
 ## Licence
 
 MIT
+
+## Public storage discovery
+
+Paid Wildbloom storage and public free mirror shelter use the versioned
+`forgesworn-storage-service-v1` kind 31402 profile. The directory validates
+signatures and the closed shared schema through the locally vendored pure
+`402-announce/storage` 2.3.0 parser. It displays the actual Wildbloom checkout
+flow and whole-package prices. Free shelter means authorised mirrors with
+best-effort evictable retention, not unknown-user direct uploads.
+
+Replacement happens before expiry/withdrawal filtering, with lowest-event-ID
+ties. Signed watermarks remain in bounded page memory across relay updates;
+fresh pages cannot detect newer events a relay omits. Expiry is re-evaluated
+locally. Storage cards and details show operator claims, never uptime or
+retention guarantees, and do not enter automatic HTTP health probes or payment
+flows. Review current `/services/v1` separately before using the private
+Wildbloom quote/payment UI. No buyer or payment data belongs in public listings.
+
+The site remains static with no deployment build/install step. Maintainer-only
+validator reproduction and controlled browser tests are documented in
+[vendor/README.md](vendor/README.md).
