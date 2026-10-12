@@ -2288,3 +2288,4 @@ footer a:hover {
 .modal-not-found {
   color: var(--text-secondary);
 }
+.storage-terms { white-space: pre-wrap; overflow-wrap: anywhere; }

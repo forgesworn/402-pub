@@ -43,6 +43,7 @@ describe('formatPaymentMethod', () => {
     assert.equal(formatPaymentMethod('xcashu'), 'xCashu')
     assert.equal(formatPaymentMethod('lnurlcash'), 'LNURLcash')
     assert.equal(formatPaymentMethod('payment'), 'IETF Payment')
+    assert.equal(formatPaymentMethod('wildbloom-checkout'), 'Wildbloom checkout')
   })
 
   it('labels legacy identifiers the same way', () => {
