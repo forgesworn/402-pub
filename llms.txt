@@ -10,6 +10,12 @@ Lightning payments, and **agent builders** who want AI agents that autonomously
 discover and pay for APIs. The site itself is a static HTML/CSS/JS page with no
 backend — all data comes from Nostr kind 31402 events and external directories.
 
+## ForgeSworn ecosystem
+
+- [ForgeSworn library guide](https://forgesworn.dev/llms.txt): Find related libraries, tools and integration guides by task and runtime.
+- [ForgeSworn on GitHub](https://github.com/forgesworn): Browse the organisation’s public repositories.
+- [Project source](https://github.com/forgesworn/402-pub): Canonical source repository, documentation and release information.
+
 ## Programmatic Access
 
 AI agents and other discovery pages can consume 402.pub's aggregated data:
